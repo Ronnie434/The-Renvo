@@ -1016,7 +1016,7 @@
 }
 
 .renvo-home .ai-feature-description {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.7);
   font-size: var(--rh-text-sm);
   line-height: 1.5;
 }
@@ -1917,6 +1917,10 @@
   border-color: rgba(99, 102, 241, 0.2);
 }
 
+.dark .renvo-home .suggestion-text {
+  color: #cbd5e1;
+}
+
 .dark .renvo-home .renewal-item {
   background: #1e293b;
   border-color: #334155;
@@ -1962,9 +1966,29 @@
 }
 
 .dark .renvo-home .ai-bg {
-  background: 
+  background:
     radial-gradient(ellipse at top left, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
     radial-gradient(ellipse at bottom right, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+}
+
+.dark .renvo-home .ai-title {
+  color: #ffffff !important;
+}
+
+.dark .renvo-home .ai-subtitle {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.dark .renvo-home .ai-feature-title {
+  color: #ffffff !important;
+}
+
+.dark .renvo-home .ai-feature-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dark .renvo-home .ai-label {
+  color: #a5b4fc !important;
 }
 
 .dark .renvo-home .trust-section {
@@ -1986,6 +2010,10 @@
 
 .dark .renvo-home .testimonial-card:hover {
   border-color: #475569;
+}
+
+.dark .renvo-home .testimonial-quote {
+  color: #cbd5e1;
 }
 
 .dark .renvo-home .pricing-section {
@@ -2033,6 +2061,71 @@
   border-color: #475569;
 }
 
+.dark .renvo-home .faq-content p {
+  color: #cbd5e1;
+}
+
 .dark .renvo-home .footer {
   background: #020617;
+}
+
+.dark .renvo-home .footer-logo {
+  color: #ffffff !important;
+}
+
+.dark .renvo-home .footer-description {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark .renvo-home .footer-heading {
+  color: #ffffff !important;
+}
+
+.dark .renvo-home .footer-links a {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark .renvo-home .footer-links a:hover {
+  color: #ffffff !important;
+}
+
+.dark .renvo-home .footer-email a {
+  color: #818cf8 !important;
+}
+
+.dark .renvo-home .footer-email a:hover {
+  color: #a5b4fc !important;
+}
+
+.dark .renvo-home .footer-bottom {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Additional dark mode text improvements */
+.dark .renvo-home .screen-label {
+  color: #94a3b8;
+}
+
+.dark .renvo-home .total-label {
+  color: #cbd5e1;
+}
+
+.dark .renvo-home .sub-date {
+  color: #cbd5e1;
+}
+
+.dark .renvo-home .hero-description {
+  color: #cbd5e1;
+}
+
+.dark .renvo-home .pain-description {
+  color: #cbd5e1;
+}
+
+.dark .renvo-home .feature-description {
+  color: #cbd5e1;
+}
+
+.dark .renvo-home .pricing-feature {
+  color: #cbd5e1;
 }

@@ -62,7 +62,7 @@ const Pricing = () => {
                     </h1>
                     
                     <p className="pricing-header-subtitle">
-                        The average person wastes <strong>$240/year</strong> on forgotten subscriptions.
+                        The average person wastes <strong>$240/year</strong> on forgotten recurring payments.
                         The Renvo finds them before they drain your wallet.
                     </p>
 
@@ -128,7 +128,7 @@ const Pricing = () => {
                                         <span className="pricing-card-price-period">/forever</span>
                                     </div>
                                     <p className="pricing-card-description">
-                                        Perfect for getting started. Track up to 5 subscriptions with essential tools.
+                                        Perfect for getting started. Track up to 5 recurring payments with essential tools.
                                     </p>
                                 </div>
 
@@ -136,7 +136,7 @@ const Pricing = () => {
                                     <p className="pricing-card-features-label">What's Included:</p>
                                     <ul className="pricing-card-features-list">
                                         {[
-                                            { title: "Up to 5 subscriptions", desc: "Track your most important recurring payments" },
+                                            { title: "Up to 5 recurring payments", desc: "Track your most important recurring expenses" },
                                             { title: "Cloud sync across all devices", desc: "Access your data on phone, tablet, and web" },
                                             { title: "Renewal reminders", desc: "Never miss a payment date again" },
                                             { title: "Basic analytics dashboard", desc: "See your spending at a glance" },
@@ -177,13 +177,13 @@ const Pricing = () => {
                                         <span className="pricing-card-badge pricing-card-badge-brand">BEST VALUE</span>
                                     </div>
                                     <div className="pricing-card-price">
-                                        <span className="pricing-card-price-value">{isYearly ? '$39' : '$4.99'}</span>
+                                        <span className="pricing-card-price-value">{isYearly ? '$39.99' : '$4.99'}</span>
                                         <span className="pricing-card-price-period">{isYearly ? '/year' : '/month'}</span>
                                     </div>
                                     {isYearly && (
                                         <p className="pricing-card-savings">
                                             <span className="line-through text-gray-400">$59.88/year</span>
-                                            <span className="pricing-card-savings-amount">Save $20.88</span>
+                                            <span className="pricing-card-savings-amount">Save $19.89</span>
                                         </p>
                                     )}
                                     <p className="pricing-card-description">
@@ -195,8 +195,8 @@ const Pricing = () => {
                                     <p className="pricing-card-features-label">Everything in Free, plus:</p>
                                     <ul className="pricing-card-features-list">
                                         {[
-                                            { title: "Unlimited subscriptions", desc: "Track every single recurring payment" },
-                                            { title: "AI Savings Coach", desc: "Personal advice to save on every subscription" },
+                                            { title: "Unlimited recurring payments", desc: "Track every single recurring expense" },
+                                            { title: "AI Savings Coach", desc: "Personal advice to save on every recurring payment" },
                                             { title: "Smart Detection Suite", desc: "Hidden costs, per-day calculator, burn rate" },
                                             { title: "Auto cancellation links", desc: "One-click cancel guidance for any service" },
                                             { title: "Offline mode + Cloud Sync", desc: "Access your data anywhere, anytime" },
@@ -218,7 +218,7 @@ const Pricing = () => {
                                 <div className="pricing-card-value-prop">
                                     <p className="pricing-card-value-prop-text">
                                         <span className="pricing-card-value-prop-highlight">💡 One forgotten $15/month subscription = $180/year.</span>
-                                        <span className="pricing-card-value-prop-sub">Premium finds it for just $39/year. The math is obvious.</span>
+                                        <span className="pricing-card-value-prop-sub">Premium finds it for just $39.99/year. The math is obvious.</span>
                                     </p>
                                 </div>
 
@@ -268,22 +268,22 @@ const Pricing = () => {
                             <div className="pricing-feature-grid">
                                 <FeatureItem
                                     icon={<svg className="h-5 w-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>}
-                                    title="Up to 5 Subscriptions"
-                                    description="Track your most important recurring payments. Perfect for getting started and seeing immediate value."
+                                    title="Up to 5 Recurring Payments"
+                                    description="Track your most important recurring expenses. Perfect for getting started and seeing immediate value."
                                     badge="Free"
                                     badgeColor="green"
                                 />
                                 <FeatureItem
                                     icon={<svg className="h-5 w-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>}
                                     title="Cloud Sync Across Devices"
-                                    description="Your subscription data follows you everywhere. Update on your phone, see changes on your tablet instantly."
+                                    description="Your recurring payment data follows you everywhere. Update on your phone, see changes on your tablet instantly."
                                     badge="Free"
                                     badgeColor="green"
                                 />
                                 <FeatureItem
                                     icon={<svg className="h-5 w-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>}
                                     title="Renewal Reminders"
-                                    description="Get notified before any subscription renews. Cancel before you're charged for something you don't use."
+                                    description="Get notified before any payment renews. Cancel before you're charged for something you don't use."
                                     badge="Free"
                                     badgeColor="green"
                                 />
@@ -297,14 +297,14 @@ const Pricing = () => {
                                 <FeatureItem
                                     icon={<svg className="h-5 w-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>}
                                     title="Category Organization"
-                                    description="Group your subscriptions by type — Entertainment, Productivity, Health, Utilities — for better clarity."
+                                    description="Group your recurring payments by type — Entertainment, Productivity, Health, Utilities — for better clarity."
                                     badge="Free"
                                     badgeColor="green"
                                 />
                                 <FeatureItem
                                     icon={<svg className="h-5 w-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>}
                                     title="CSV Export"
-                                    description="Download all your subscription data anytime. Use it in spreadsheets, share with your accountant, or keep for records."
+                                    description="Download all your recurring payment data anytime. Use it in spreadsheets, share with your accountant, or keep for records."
                                     badge="Free"
                                     badgeColor="green"
                                 />
@@ -337,7 +337,7 @@ const Pricing = () => {
                                 <FeatureItem
                                     icon={<svg className="h-5 w-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
                                     title="Per-Day Cost Calculator"
-                                    description="See what each subscription truly costs per day. Suddenly that 'cheap' $15/month service reveals itself as $0.50 daily drain."
+                                    description="See what each recurring payment truly costs per day. Suddenly that 'cheap' $15/month service reveals itself as $0.50 daily drain."
                                     badge="Premium"
                                     badgeColor="blue"
                                 />
@@ -412,7 +412,7 @@ const Pricing = () => {
                                 <FeatureItem
                                     icon={<svg className="h-5 w-5 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>}
                                     title="AI Price Increase Alerts"
-                                    description="Get notified when providers raise prices on your tracked subscriptions. Decide to keep or cancel before the change hits."
+                                    description="Get notified when providers raise prices on your tracked payments. Decide to keep or cancel before the change hits."
                                     badge="Coming Soon"
                                     badgeColor="yellow"
                                 />
@@ -478,7 +478,7 @@ const Pricing = () => {
                                 <FeatureItem
                                     icon={<svg className="h-5 w-5 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414" /></svg>}
                                     title="Offline Mode"
-                                    description="Access your subscriptions even without internet. Changes sync automatically when you're back online."
+                                    description="Access your recurring payments even without internet. Changes sync automatically when you're back online."
                                     badge="Premium"
                                     badgeColor="blue"
                                 />
@@ -526,7 +526,7 @@ const Pricing = () => {
                                         <td colSpan="3">Core Features</td>
                                     </tr>
                                     <tr>
-                                        <td>Subscriptions limit</td>
+                                        <td>Recurring payments limit</td>
                                         <td className="pricing-table-value">Up to 5</td>
                                         <td className="pricing-table-value pricing-table-premium-cell">
                                             <span className="font-medium">Unlimited</span>
@@ -741,11 +741,11 @@ const Pricing = () => {
                         
                         <div className="pricing-faq-list">
                             {[
-                                { q: 'Why should I upgrade to Premium?', a: 'Premium unlocks unlimited subscription tracking, AI-powered savings recommendations, hidden cost detection, and one-click cancellation links. The average user finds $240+ in yearly savings — Premium pays for itself with just one forgotten subscription caught.' },
-                                { q: 'What exactly does Premium unlock?', a: 'Premium includes everything in Free plus: unlimited subscriptions (vs. 5 in Free), AI Savings Coach & Cancel Suggestions, Per-Day Cost Calculator & Hidden Costs Detector, Price Comparison Table & Annual Savings Tracker, Category Burn Rate analysis, Auto cancellation links + step-by-step guidance, Offline mode + Secure Supabase backend, Full iOS & Android support.' },
-                                { q: 'Is my data safe?', a: 'Absolutely. We use Supabase with AES-256 encryption — the same standard banks use. We never sell your data, never share it with third parties, and you can export or delete everything at any time. Your subscription data belongs to you, period.' },
-                                { q: 'Does the Free plan expire?', a: 'Never. Free is free forever — no trials, no expiration dates, no bait-and-switch. You can use the Free plan indefinitely with up to 5 subscriptions, cloud sync, renewal reminders, and basic analytics. Upgrade only when you need more.' },
-                                { q: 'Is AI required to use The Renvo?', a: 'Not at all. The Renvo works perfectly as a manual subscription tracker without any AI features. The Free plan has zero AI — it\'s pure subscription management. AI features in Premium are optional enhancements that provide smart recommendations, but you\'re always in control.' },
+                                { q: 'Why should I upgrade to Premium?', a: 'Premium unlocks unlimited recurring payment tracking, AI-powered savings recommendations, hidden cost detection, and one-click cancellation links. The average user finds $240+ in yearly savings — Premium pays for itself with just one forgotten payment caught.' },
+                                { q: 'What exactly does Premium unlock?', a: 'Premium includes everything in Free plus: unlimited recurring payments (vs. 5 in Free), AI Savings Coach & Cancel Suggestions, Per-Day Cost Calculator & Hidden Costs Detector, Price Comparison Table & Annual Savings Tracker, Category Burn Rate analysis, Auto cancellation links + step-by-step guidance, Offline mode + Secure Supabase backend, Full iOS & Android support.' },
+                                { q: 'Is my data safe?', a: 'Absolutely. We use Supabase with AES-256 encryption — the same standard banks use. We never sell your data, never share it with third parties, and you can export or delete everything at any time. Your data belongs to you, period.' },
+                                { q: 'Does the Free plan expire?', a: 'Never. Free is free forever — no trials, no expiration dates, no bait-and-switch. You can use the Free plan indefinitely with up to 5 recurring payments, cloud sync, renewal reminders, and basic analytics. Upgrade only when you need more.' },
+                                { q: 'Is AI required to use The Renvo?', a: 'Not at all. The Renvo works perfectly as a manual recurring payment tracker without any AI features. The Free plan has zero AI — it\'s pure expense management. AI features in Premium are optional enhancements that provide smart recommendations, but you\'re always in control.' },
                                 { q: 'Can I cancel Premium anytime?', a: 'Yes, zero friction. Cancel in two taps from the app settings. You\'ll keep Premium features until the end of your billing period, then automatically revert to Free. We also offer a 7-day money-back guarantee if Premium isn\'t right for you.' }
                             ].map((faq, index) => (
                                 <div key={index} className="pricing-faq-item">
@@ -782,7 +782,7 @@ const Pricing = () => {
                             Ready to Stop Wasting Money?
                         </h2>
                         <p className="pricing-cta-subtitle">
-                            Join thousands who've taken control of their subscriptions. Start free today, upgrade when you're ready.
+                            Join thousands who've taken control of their recurring expenses. Start free today, upgrade when you're ready.
                         </p>
                         <div className="pricing-cta-buttons">
                             <Link to="#" className="pricing-cta-button pricing-cta-button-primary">

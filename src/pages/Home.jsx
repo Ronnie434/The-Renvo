@@ -43,7 +43,7 @@ const Home = () => {
     },
     {
       question: 'How does the Smart Intelligence work?',
-      answer: 'Our Smart Intelligence analyzes your subscription patterns, compares them to market averages, and identifies unused services based on your input and usage frequency.'
+      answer: 'Our Smart Intelligence analyzes your recurring payment patterns, compares them to market averages, and identifies unused services based on your input and usage frequency.'
     },
     {
       question: 'Can I cancel Premium anytime?',
@@ -103,7 +103,7 @@ const Home = () => {
         </svg>
       ),
       title: 'Track Everything',
-      description: 'All subs in one dashboard. Auto-complete logos and instant cost breakdowns.'
+      description: 'All recurring payments in one dashboard. Auto-complete logos and instant cost breakdowns.'
     },
     {
       icon: (
@@ -121,7 +121,7 @@ const Home = () => {
         </svg>
       ),
       title: 'Optimize & Save',
-      description: 'Smart Intelligence finds forgotten subs and suggests cheaper annual plans.'
+      description: 'Smart Intelligence finds forgotten payments and suggests cheaper annual plans.'
     }
   ];
 
@@ -132,7 +132,7 @@ const Home = () => {
     },
     {
       title: 'Smart Intelligence Cancel Suggestions',
-      description: "Detects unused subscriptions you haven't opened in weeks."
+      description: "Detects unused services you haven't opened in weeks."
     },
     {
       title: 'Price Increase Alerts',
@@ -193,7 +193,7 @@ const Home = () => {
 
   const testimonials = [
     {
-      quote: 'I found monthly subscriptions I forgot about completely. The Smart Intelligence suggestions are definitely worth looking into.',
+      quote: 'I found monthly recurring payments I forgot about completely. The Smart Intelligence suggestions are definitely worth looking into.',
       author: 'Sarah M., Seattle'
     },
     {
@@ -224,7 +224,7 @@ const Home = () => {
               </h1>
               
               <p className="hero-description fade-in-section">
-                Stop wasting money on forgotten subscriptions. One dashboard. Complete clarity. AI-powered savings.
+                Stop wasting money on forgotten recurring payments. One dashboard. Complete clarity. AI-powered savings.
               </p>
               
               <div className="hero-buttons fade-in-section">
@@ -479,7 +479,7 @@ const Home = () => {
                   <svg className="check-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  Track essential subscriptions
+                  Track essential recurring payments
                 </li>
                 <li className="pricing-feature">
                   <svg className="check-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -499,7 +499,7 @@ const Home = () => {
                   <svg className="check-icon check-icon--accent" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  Unlimited subscriptions
+                  Unlimited recurring payments
                 </li>
                 <li className="pricing-feature pricing-feature--accent">
                   <svg className="check-icon check-icon--accent" fill="currentColor" viewBox="0 0 20 20">
@@ -557,7 +557,7 @@ const Home = () => {
           <div className="footer-grid">
             <div className="footer-brand">
               <span className="footer-logo">The Renvo<span className="logo-dot">.</span></span>
-              <p className="footer-description">Track, manage, and optimize your subscriptions effortlessly.</p>
+              <p className="footer-description">Track, manage, and optimize your recurring expenses effortlessly.</p>
               <div className="footer-email">
                 <a href="mailto:contact@therenvo.com">contact@therenvo.com</a>
               </div>

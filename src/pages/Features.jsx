@@ -31,7 +31,7 @@ const Features = () => {
   };
 
   const navItems = [
-    { id: 'subscription-control', label: 'Subscription Control' },
+    { id: 'subscription-control', label: 'Payment Control' },
     { id: 'financial-clarity', label: 'Financial Clarity' },
     { id: 'smart-detection', label: 'Smart Detection' },
     { id: 'ai-enhancements', label: 'Smart Intelligence Enhancements' },
@@ -49,13 +49,13 @@ const Features = () => {
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
               </svg>
-              Trusted by 10,000+ subscribers worldwide
+              Trusted by 10,000+ users worldwide
             </div>
             <h1 className="fp-hero__title">
               Every feature designed for <span className="fp-text--gradient">clarity and control</span>
             </h1>
             <p className="fp-hero__subtitle">
-              Complete subscription organization — from simple tracking to smart detection and financial insights. Finally, peace of mind over what you're paying for.
+              Complete recurring expense organization — from simple tracking to smart detection and financial insights. Finally, peace of mind over what you're paying for.
             </p>
           </div>
         </div>
@@ -112,31 +112,31 @@ const Features = () => {
         </div>
       </section>
 
-      {/* SECTION 1: Subscription Control */}
+      {/* SECTION 1: Payment Control */}
       <section id="subscription-control" className="fp-feature-section">
         <div className="fp-container">
           <div className="fp-section-header">
             <div className="fp-section-header__accent fp-section-header__accent--sky"></div>
             <div className="fp-section-header__content">
               <span className="fp-section-header__overline fp-section-header__overline--sky">Core Feature</span>
-              <h2 className="fp-section-header__title">Subscription Control</h2>
+              <h2 className="fp-section-header__title">Recurring Payment Control</h2>
               <p className="fp-section-header__subtitle">Total organization in one beautiful place</p>
             </div>
           </div>
           
           <div className="fp-cards-grid">
-            <FeatureCard 
+            <FeatureCard
               title="Unified Dashboard"
-              description="See every subscription in one clean view. No more spreadsheets, no more guessing what you're paying for."
-              quote="Finally, I can see all 23 subscriptions in one place instead of scattered across apps."
+              description="See every recurring payment in one clean view. No more spreadsheets, no more guessing what you're paying for."
+              quote="Finally, I can see all 23 recurring expenses in one place instead of scattered across apps."
               iconPath="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
               isFree={true}
               color="sky"
             />
             
-            <FeatureCard 
+            <FeatureCard
               title="1,000+ Brand Logos"
-              description="Auto-complete finds official brands instantly. Your subscription list looks professional from day one."
+              description="Auto-complete finds official brands instantly. Your payment list looks professional from day one."
               quote="Type 'Net' and Netflix appears with the perfect logo. So satisfying."
               iconPath="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
               isFree={true}
@@ -152,28 +152,28 @@ const Features = () => {
               color="sky"
             />
 
-            <FeatureCard 
+            <FeatureCard
               title="Multi-Currency Support"
-              description="Track USD, EUR, GBP, and 50+ currencies with automatic conversion. Perfect for global subscriptions."
-              quote="My UK and US subscriptions finally make sense together."
+              description="Track USD, EUR, GBP, and 50+ currencies with automatic conversion. Perfect for global recurring payments."
+              quote="My UK and US payments finally make sense together."
               iconPath="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               isFree={true}
               color="sky"
             />
 
-            <FeatureCard 
+            <FeatureCard
               title="CSV Export"
-              description="Export your complete subscription data for spreadsheets, tax software, or budgeting apps. Your data, your way."
+              description="Export your complete recurring payment data for spreadsheets, tax software, or budgeting apps. Your data, your way."
               quote="Tax season was a breeze — I just exported everything to my accountant."
               iconPath="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
               isFree={true}
               color="sky"
             />
 
-            <FeatureCard 
+            <FeatureCard
               title="Batch Operations"
-              description="Edit, categorize, or archive multiple subscriptions at once. Manage 50 subscriptions in seconds, not hours."
-              quote="Selected 12 old subscriptions and archived them all in one click."
+              description="Edit, categorize, or archive multiple recurring payments at once. Manage 50 items in seconds, not hours."
+              quote="Selected 12 old payments and archived them all in one click."
               iconPath="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
               isFree={false}
               color="sky"
@@ -195,9 +195,9 @@ const Features = () => {
           </div>
           
           <div className="fp-cards-grid">
-            <FeatureCard 
+            <FeatureCard
               title="Total Cost Dashboard"
-              description="Real-time monthly and annual spending view. Know your exact subscription commitment at a glance — no calculator needed."
+              description="Real-time monthly and annual spending view. Know your exact recurring expense commitment at a glance — no calculator needed."
               quote="I had no idea I was spending $487/month until I saw the dashboard."
               iconPath="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
               isFree={true}
@@ -222,27 +222,27 @@ const Features = () => {
               color="green"
             />
 
-            <FeatureCard 
+            <FeatureCard
               title="Spending Trends"
-              description="Historical charts showing if your subscription spending is increasing or decreasing over months. Track your progress."
+              description="Historical charts showing if your recurring spending is increasing or decreasing over months. Track your progress."
               quote="Down 23% from 6 months ago. The Renvo paid for itself."
               iconPath="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
               isFree={false}
               color="green"
             />
 
-            <FeatureCard 
+            <FeatureCard
               title="Monthly vs Yearly Comparison"
               description="Compare billing cycle costs side-by-side. Discover instant savings by switching from monthly to annual plans."
-              quote="Switching 4 subscriptions to annual saved me $156/year."
+              quote="Switching 4 payments to annual saved me $156/year."
               iconPath="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
               isFree={true}
               color="green"
             />
 
-            <FeatureCard 
+            <FeatureCard
               title="Budget Tracking"
-              description="Set a subscription budget and track actual spending against it. Get alerts when you're approaching your limit."
+              description="Set a recurring expense budget and track actual spending against it. Get alerts when you're approaching your limit."
               quote="Set $200/month budget. Currently at $187. Peace of mind."
               iconPath="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
               isFree={false}
@@ -260,22 +260,22 @@ const Features = () => {
             <div className="fp-section-header__content">
               <span className="fp-section-header__overline fp-section-header__overline--orange">Core Feature</span>
               <h2 className="fp-section-header__title">Smart Detection</h2>
-              <p className="fp-section-header__subtitle">Automatic subscription detection that works</p>
+              <p className="fp-section-header__subtitle">Automatic recurring payment detection that works</p>
             </div>
           </div>
           
           <div className="fp-cards-grid fp-cards-grid--2col">
-            <LargeFeatureCard 
+            <LargeFeatureCard
               title="Email Receipt Scanning"
-              description="Connect your email and automatically detect subscription receipts. We find the subscriptions you forgot about."
-              quote="Found 7 subscriptions I completely forgot I was paying for!"
+              description="Connect your email and automatically detect payment receipts. We find the recurring payments you forgot about."
+              quote="Found 7 recurring payments I completely forgot I was paying for!"
               iconPath="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               color="orange"
             />
 
-            <LargeFeatureCard 
+            <LargeFeatureCard
               title="Bank Statement Import"
-              description="Import bank statements and we'll identify recurring charges automatically. Catch every subscription, even the sneaky ones."
+              description="Import bank statements and we'll identify recurring charges automatically. Catch every recurring payment, even the sneaky ones."
               quote="The $4.99 charge I'd been ignoring for 2 years? Finally found it."
               iconPath="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
               color="orange"
@@ -320,16 +320,16 @@ const Features = () => {
               iconPath="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               color="indigo"
             />
-            <SmallFeatureCard 
+            <SmallFeatureCard
               title="Smart Cancel Suggestions"
-              description="60+ day usage analysis identifies subscriptions you've stopped using. Eliminates guilt and waste."
-              quote="Found 3 subscriptions you haven't used"
+              description="60+ day usage analysis identifies services you've stopped using. Eliminates guilt and waste."
+              quote="Found 3 services you haven't used"
               iconPath="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
               color="indigo"
             />
-            <SmallFeatureCard 
+            <SmallFeatureCard
               title="Smart Plan Optimization"
-              description="Recommends cheaper plans based on your actual usage patterns. Right-size every subscription."
+              description="Recommends cheaper plans based on your actual usage patterns. Right-size every recurring payment."
               quote="Switch to Basic, save $15/mo"
               iconPath="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
               color="indigo"
@@ -341,9 +341,9 @@ const Features = () => {
               iconPath="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
               color="indigo"
             />
-            <SmallFeatureCard 
+            <SmallFeatureCard
               title="Per-Day Cost Calculator"
-              description="Breaks down monthly fees into daily value perspective. See the true cost of every subscription."
+              description="Breaks down monthly fees into daily value perspective. See the true cost of every recurring payment."
               quote="Netflix costs $0.50/day — worth it?"
               iconPath="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
               color="indigo"
@@ -512,9 +512,9 @@ const Features = () => {
               color="teal"
             />
 
-            <FeatureCard 
+            <FeatureCard
               title="Data Portability"
-              description="Export and import your data freely. Move between devices, share with accountants, or just keep local backups."
+              description="Export and import your data freely. Move between devices, share with accountants, or keep local backups."
               quote="Exported everything to share with my financial advisor."
               iconPath="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
               isFree={true}
@@ -555,7 +555,7 @@ const Features = () => {
         <div className="fp-container">
           <div className="fp-section-header fp-section-header--center">
             <h2 className="fp-section-header__title">What's included in each plan?</h2>
-            <p className="fp-section-header__subtitle">Everything you need to take control of your subscriptions</p>
+            <p className="fp-section-header__subtitle">Everything you need to take control of your recurring expenses</p>
           </div>
           
           <div className="fp-pricing__grid">
@@ -608,7 +608,7 @@ const Features = () => {
                 </div>
                 <div>
                   <h3 className="fp-pricing-card__name">Premium</h3>
-                  <p className="fp-pricing-card__tagline">Full subscription control</p>
+                  <p className="fp-pricing-card__tagline">Full recurring payment control</p>
                 </div>
               </div>
               <div className="fp-pricing-card__price">$4.99<span>/month</span></div>
@@ -651,7 +651,7 @@ const Features = () => {
               No credit card required for free plan
             </div>
             <h2 className="fp-cta__title">
-              Ready to take control of your subscriptions?
+              Ready to take control of your recurring expenses?
             </h2>
             <p className="fp-cta__subtitle">
               Join thousands who've discovered what they're really paying for. Start with our free plan — upgrade whenever you're ready.
