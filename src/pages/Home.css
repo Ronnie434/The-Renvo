@@ -1,0 +1,2038 @@
+/* =====================================================
+   RENVO HOME PAGE - Production-Ready CSS
+   Mobile-first responsive system with premium polish
+   ===================================================== */
+
+/* =====================================================
+   CSS CUSTOM PROPERTIES (Scoped)
+   ===================================================== */
+.renvo-home {
+  /* Colors - Neutral Palette */
+  --rh-white: #ffffff;
+  --rh-black: #000000;
+  --rh-gray-50: #f9fafb;
+  --rh-gray-100: #f3f4f6;
+  --rh-gray-200: #e5e7eb;
+  --rh-gray-300: #d1d5db;
+  --rh-gray-400: #9ca3af;
+  --rh-gray-500: #6b7280;
+  --rh-gray-600: #4b5563;
+  --rh-gray-700: #374151;
+  --rh-gray-800: #1f2937;
+  --rh-gray-900: #111827;
+  --rh-gray-950: #030712;
+
+  /* Colors - Primary (Indigo) */
+  --rh-primary-50: #eef2ff;
+  --rh-primary-100: #e0e7ff;
+  --rh-primary-200: #c7d2fe;
+  --rh-primary-300: #a5b4fc;
+  --rh-primary-400: #818cf8;
+  --rh-primary-500: #6366f1;
+  --rh-primary-600: #4f46e5;
+  --rh-primary-700: #4338ca;
+
+  /* Colors - Semantic */
+  --rh-success: #10b981;
+  --rh-success-light: rgba(16, 185, 129, 0.1);
+  --rh-warning: #f59e0b;
+  --rh-warning-light: rgba(245, 158, 11, 0.1);
+  --rh-danger: #ef4444;
+  --rh-danger-light: rgba(239, 68, 68, 0.1);
+
+  /* Typography */
+  --rh-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+                   'Helvetica Neue', Arial, sans-serif;
+  --rh-font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Consolas', monospace;
+
+  /* Font Sizes - Mobile First */
+  --rh-text-xs: 0.75rem;
+  --rh-text-sm: 0.875rem;
+  --rh-text-base: 1rem;
+  --rh-text-lg: 1.125rem;
+  --rh-text-xl: 1.25rem;
+  --rh-text-2xl: 1.5rem;
+  --rh-text-3xl: 1.875rem;
+  --rh-text-4xl: 2.25rem;
+  --rh-text-5xl: 3rem;
+
+  /* Font Weights */
+  --rh-font-normal: 400;
+  --rh-font-medium: 500;
+  --rh-font-semibold: 600;
+  --rh-font-bold: 700;
+  --rh-font-extrabold: 800;
+
+  /* Spacing Scale - Mobile First */
+  --rh-space-1: 0.25rem;
+  --rh-space-2: 0.5rem;
+  --rh-space-3: 0.75rem;
+  --rh-space-4: 1rem;
+  --rh-space-5: 1.25rem;
+  --rh-space-6: 1.5rem;
+  --rh-space-8: 2rem;
+  --rh-space-10: 2.5rem;
+  --rh-space-12: 3rem;
+  --rh-space-16: 4rem;
+  --rh-space-20: 5rem;
+  --rh-space-24: 6rem;
+
+  /* Section Spacing - Responsive */
+  --rh-section-padding: clamp(3rem, 8vw, 6rem);
+  --rh-section-gap: clamp(2rem, 5vw, 4rem);
+
+  /* Border Radius */
+  --rh-radius-sm: 0.375rem;
+  --rh-radius-md: 0.5rem;
+  --rh-radius-lg: 0.75rem;
+  --rh-radius-xl: 1rem;
+  --rh-radius-2xl: 1.25rem;
+  --rh-radius-3xl: 1.5rem;
+  --rh-radius-full: 9999px;
+
+  /* Shadows */
+  --rh-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --rh-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                  0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --rh-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+                  0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --rh-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                  0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --rh-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Transitions */
+  --rh-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --rh-transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --rh-transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --rh-container-max: 1200px;
+  --rh-navbar-height: 72px;
+  --rh-container-padding: clamp(1rem, 4vw, 1.5rem);
+
+  /* Base Styles */
+  font-family: var(--rh-font-sans);
+  color: var(--rh-gray-900);
+  background: var(--rh-white);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+@keyframes renvo-pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.6; 
+    transform: scale(0.95);
+  }
+}
+
+@keyframes renvo-float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-8px); 
+  }
+}
+
+@keyframes renvo-shimmer {
+  0% { 
+    background-position: -200% 0; 
+  }
+  100% { 
+    background-position: 200% 0; 
+  }
+}
+
+.renvo-home .fade-in-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.renvo-home .fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================================
+   SHARED COMPONENTS
+   ===================================================== */
+.renvo-home .section-container {
+  max-width: var(--rh-container-max);
+  margin: 0 auto;
+  padding: 0 var(--rh-container-padding);
+}
+
+.renvo-home .section-header {
+  text-align: center;
+  margin-bottom: var(--rh-section-gap);
+}
+
+.renvo-home .section-title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: var(--rh-font-bold);
+  color: var(--rh-gray-900);
+  margin-bottom: var(--rh-space-4);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.renvo-home .section-title--center {
+  text-align: center;
+}
+
+.renvo-home .section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--rh-gray-500);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   HERO SECTION
+   ===================================================== */
+.renvo-home .hero-section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, var(--rh-gray-50) 0%, var(--rh-white) 100%);
+  padding: var(--rh-space-16) var(--rh-container-padding);
+  padding-top: calc(var(--rh-space-16) + var(--rh-navbar-height));
+  position: relative;
+  overflow: hidden;
+}
+
+.renvo-home .hero-section::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -15%;
+  width: 60%;
+  height: 120%;
+  background: radial-gradient(ellipse, var(--rh-primary-100) 0%, transparent 60%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.renvo-home .hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rh-gray-200), transparent);
+}
+
+.renvo-home .hero-container {
+  max-width: var(--rh-container-max);
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.renvo-home .hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rh-space-12);
+  align-items: center;
+  text-align: center;
+}
+
+.renvo-home .hero-text {
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.renvo-home .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rh-space-2);
+  padding: var(--rh-space-2) var(--rh-space-4);
+  background: var(--rh-white);
+  border: 1px solid var(--rh-gray-200);
+  border-radius: var(--rh-radius-full);
+  font-size: var(--rh-text-sm);
+  color: var(--rh-gray-600);
+  margin-bottom: var(--rh-space-6);
+  font-weight: var(--rh-font-medium);
+  box-shadow: var(--rh-shadow-sm);
+}
+
+.renvo-home .badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--rh-success);
+  border-radius: 50%;
+  animation: renvo-pulse 2s infinite;
+}
+
+.renvo-home .hero-title {
+  font-size: clamp(1.875rem, 6vw, 3rem);
+  font-weight: var(--rh-font-extrabold);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--rh-space-5);
+  color: var(--rh-gray-900);
+}
+
+.renvo-home .highlight {
+  background: linear-gradient(135deg, var(--rh-primary-500), var(--rh-primary-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.renvo-home .hero-description {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--rh-gray-500);
+  margin-bottom: var(--rh-space-8);
+  line-height: 1.7;
+}
+
+.renvo-home .hero-buttons {
+  display: flex;
+  gap: var(--rh-space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.renvo-home .store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rh-space-3);
+  padding: var(--rh-space-3) var(--rh-space-5);
+  min-height: 52px;
+  background: var(--rh-gray-900);
+  color: var(--rh-white);
+  border: none;
+  border-radius: var(--rh-radius-xl);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all var(--rh-transition-base);
+  box-shadow: var(--rh-shadow-lg);
+}
+
+.renvo-home .store-btn:hover {
+  background: var(--rh-gray-800);
+  transform: translateY(-2px);
+  box-shadow: var(--rh-shadow-xl);
+}
+
+.renvo-home .store-btn:active {
+  transform: translateY(0);
+}
+
+.renvo-home .store-btn--secondary {
+  background: var(--rh-white);
+  color: var(--rh-gray-900);
+  border: 1px solid var(--rh-gray-200);
+}
+
+.renvo-home .store-btn--secondary:hover {
+  background: var(--rh-gray-50);
+  border-color: var(--rh-gray-300);
+}
+
+.renvo-home .store-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.renvo-home .store-text {
+  text-align: left;
+}
+
+.renvo-home .store-label {
+  font-size: var(--rh-text-xs);
+  opacity: 0.8;
+  font-weight: var(--rh-font-normal);
+  line-height: 1.2;
+}
+
+.renvo-home .store-name {
+  font-size: var(--rh-text-base);
+  font-weight: var(--rh-font-semibold);
+  line-height: 1.2;
+}
+
+/* =====================================================
+   PHONE MOCKUP - Mobile First
+   ===================================================== */
+.renvo-home .hero-phone {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--rh-space-4) 0;
+}
+
+.renvo-home .phone-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--rh-primary-200) 0%, transparent 70%);
+  filter: blur(60px);
+  opacity: 0.5;
+  z-index: 0;
+  animation: renvo-float 6s ease-in-out infinite;
+}
+
+.renvo-home .phone-container {
+  position: relative;
+  width: min(280px, 75vw);
+  aspect-ratio: 320/660;
+  max-height: 560px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: clamp(32px, 8vw, 48px);
+  box-shadow: 
+    0 40px 80px -20px rgba(0, 0, 0, 0.4),
+    0 20px 40px -20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  z-index: 1;
+}
+
+.renvo-home .phone-notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 24px;
+  background: #1a1a1a;
+  border-radius: 0 0 16px 16px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.renvo-home .notch-inner {
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.renvo-home .phone-button-left-1,
+.renvo-home .phone-button-left-2,
+.renvo-home .phone-button-right {
+  position: absolute;
+  background: #2a2a2a;
+  border-radius: 2px;
+}
+
+.renvo-home .phone-button-left-1 {
+  left: -2px;
+  top: 80px;
+  width: 3px;
+  height: 24px;
+}
+
+.renvo-home .phone-button-left-2 {
+  left: -2px;
+  top: 115px;
+  width: 3px;
+  height: 44px;
+}
+
+.renvo-home .phone-button-right {
+  right: -2px;
+  top: 100px;
+  width: 3px;
+  height: 56px;
+}
+
+.renvo-home .phone-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--rh-gray-50) 0%, var(--rh-white) 100%);
+  border-radius: clamp(24px, 6vw, 40px);
+  overflow: hidden;
+  position: relative;
+}
+
+.renvo-home .mock-scroll {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 44px 14px 88px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.renvo-home .mock-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.renvo-home .screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--rh-space-4);
+}
+
+.renvo-home .screen-label {
+  font-size: 10px;
+  color: var(--rh-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+  font-weight: var(--rh-font-medium);
+}
+
+.renvo-home .screen-title {
+  font-size: var(--rh-text-xl);
+  font-weight: var(--rh-font-bold);
+  color: var(--rh-gray-900);
+  line-height: 1.2;
+}
+
+.renvo-home .avatar {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--rh-primary-500), var(--rh-primary-600));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--rh-shadow-md);
+}
+
+.renvo-home .avatar-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--rh-white);
+}
+
+.renvo-home .total-card {
+  background: var(--rh-white);
+  border-radius: var(--rh-radius-xl);
+  padding: var(--rh-space-4);
+  margin-bottom: var(--rh-space-3);
+  box-shadow: var(--rh-shadow-md);
+  border: 1px solid var(--rh-gray-100);
+}
+
+.renvo-home .total-label {
+  font-size: var(--rh-text-xs);
+  color: var(--rh-gray-500);
+  margin-bottom: var(--rh-space-1);
+  font-weight: var(--rh-font-medium);
+}
+
+.renvo-home .total-amount {
+  font-size: clamp(2rem, 8vw, 2.5rem);
+  font-weight: var(--rh-font-extrabold);
+  color: var(--rh-gray-900);
+  margin-bottom: var(--rh-space-2);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.renvo-home .cents {
+  font-size: 0.5em;
+  color: var(--rh-gray-400);
+  font-weight: var(--rh-font-bold);
+}
+
+.renvo-home .budget-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rh-space-1);
+  padding: var(--rh-space-1) var(--rh-space-2);
+  background: var(--rh-success-light);
+  color: var(--rh-success);
+  border-radius: var(--rh-radius-sm);
+  font-size: var(--rh-text-xs);
+  font-weight: var(--rh-font-semibold);
+}
+
+.renvo-home .budget-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.renvo-home .suggestion-card {
+  background: var(--rh-primary-50);
+  border: 1px solid var(--rh-primary-200);
+  border-radius: var(--rh-radius-lg);
+  padding: var(--rh-space-3);
+  margin-bottom: var(--rh-space-4);
+  display: flex;
+  gap: var(--rh-space-2);
+  align-items: flex-start;
+}
+
+.renvo-home .suggestion-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--rh-primary-500);
+  border-radius: var(--rh-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rh-white);
+  flex-shrink: 0;
+}
+
+.renvo-home .suggestion-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.renvo-home .suggestion-title {
+  font-size: 10px;
+  font-weight: var(--rh-font-bold);
+  color: var(--rh-primary-600);
+  margin-bottom: 1px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.renvo-home .suggestion-text {
+  font-size: var(--rh-text-xs);
+  color: var(--rh-gray-600);
+  line-height: 1.4;
+}
+
+.renvo-home .renewals-section {
+  margin-top: var(--rh-space-4);
+}
+
+.renvo-home .renewals-label {
+  font-size: 10px;
+  font-weight: var(--rh-font-bold);
+  color: var(--rh-gray-900);
+  margin-bottom: var(--rh-space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.renvo-home .renewal-item {
+  background: var(--rh-white);
+  border: 1px solid var(--rh-gray-200);
+  border-radius: var(--rh-radius-lg);
+  padding: var(--rh-space-2) var(--rh-space-3);
+  margin-bottom: var(--rh-space-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: all var(--rh-transition-fast);
+}
+
+.renvo-home .renewal-item:hover {
+  border-color: var(--rh-gray-300);
+  box-shadow: var(--rh-shadow-sm);
+}
+
+.renvo-home .renewal-item--warning {
+  border-color: var(--rh-warning);
+  background: var(--rh-warning-light);
+}
+
+.renvo-home .warning-indicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 50%;
+  background: var(--rh-warning);
+  border-radius: 0 3px 3px 0;
+}
+
+.renvo-home .renewal-left {
+  display: flex;
+  align-items: center;
+  gap: var(--rh-space-2);
+}
+
+.renvo-home .sub-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--rh-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--rh-font-bold);
+  font-size: var(--rh-text-sm);
+  color: var(--rh-white);
+  flex-shrink: 0;
+}
+
+.renvo-home .sub-logo--netflix { background: #e50914; }
+.renvo-home .sub-logo--spotify { background: #1db954; }
+.renvo-home .sub-logo--adobe { background: #ff0000; }
+
+.renvo-home .sub-name {
+  font-size: var(--rh-text-xs);
+  font-weight: var(--rh-font-semibold);
+  color: var(--rh-gray-900);
+  margin-bottom: 1px;
+}
+
+.renvo-home .sub-date {
+  font-size: 10px;
+  color: var(--rh-gray-500);
+}
+
+.renvo-home .sub-date--urgent {
+  color: var(--rh-danger);
+  font-weight: var(--rh-font-semibold);
+}
+
+.renvo-home .sub-date--warning {
+  color: var(--rh-warning);
+  font-weight: var(--rh-font-semibold);
+}
+
+.renvo-home .sub-price {
+  font-size: var(--rh-text-sm);
+  font-weight: var(--rh-font-bold);
+  color: var(--rh-gray-900);
+}
+
+.renvo-home .phone-nav {
+  position: absolute;
+  bottom: 16px;
+  left: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--rh-radius-xl);
+  display: flex;
+  justify-content: space-around;
+  padding: var(--rh-space-1);
+  box-shadow: var(--rh-shadow-lg);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.renvo-home .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--rh-space-2);
+  border-radius: var(--rh-radius-md);
+  transition: all var(--rh-transition-fast);
+  cursor: pointer;
+  flex: 1;
+}
+
+.renvo-home .nav-item--active {
+  background: var(--rh-primary-50);
+}
+
+.renvo-home .nav-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--rh-gray-400);
+}
+
+.renvo-home .nav-item--active .nav-icon {
+  color: var(--rh-primary-500);
+}
+
+.renvo-home .nav-label {
+  font-size: 9px;
+  color: var(--rh-gray-400);
+  font-weight: var(--rh-font-medium);
+}
+
+.renvo-home .nav-item--active .nav-label {
+  color: var(--rh-primary-500);
+}
+
+.renvo-home .home-indicator {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: var(--rh-radius-full);
+}
+
+/* =====================================================
+   PAIN POINTS SECTION
+   ===================================================== */
+.renvo-home .pain-section {
+  padding: var(--rh-section-padding) var(--rh-container-padding);
+  background: var(--rh-white);
+}
+
+.renvo-home .pain-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rh-space-4);
+}
+
+.renvo-home .pain-item {
+  text-align: center;
+  padding: var(--rh-space-6);
+  border-radius: var(--rh-radius-xl);
+  background: var(--rh-gray-50);
+  border: 1px solid var(--rh-gray-100);
+  transition: all var(--rh-transition-base);
+}
+
+.renvo-home .pain-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--rh-shadow-md);
+  border-color: var(--rh-gray-200);
+}
+
+.renvo-home .pain-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--rh-space-4);
+  border-radius: var(--rh-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.renvo-home .pain-icon--danger {
+  background: var(--rh-danger-light);
+  color: var(--rh-danger);
+}
+
+.renvo-home .pain-icon--warning {
+  background: var(--rh-warning-light);
+  color: var(--rh-warning);
+}
+
+.renvo-home .pain-icon--neutral {
+  background: var(--rh-gray-100);
+  color: var(--rh-gray-500);
+}
+
+.renvo-home .pain-icon--primary {
+  background: var(--rh-primary-100);
+  color: var(--rh-primary-500);
+}
+
+.renvo-home .pain-icon-svg {
+  width: 22px;
+  height: 22px;
+}
+
+.renvo-home .pain-title {
+  font-size: var(--rh-text-base);
+  font-weight: var(--rh-font-semibold);
+  color: var(--rh-gray-900);
+  margin-bottom: var(--rh-space-2);
+}
+
+.renvo-home .pain-description {
+  color: var(--rh-gray-500);
+  font-size: var(--rh-text-sm);
+  line-height: 1.5;
+}
+
+/* =====================================================
+   FEATURES SECTION
+   ===================================================== */
+.renvo-home .features-section {
+  padding: var(--rh-section-padding) var(--rh-container-padding);
+  background: var(--rh-gray-50);
+  position: relative;
+}
+
+.renvo-home .features-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rh-gray-200), transparent);
+}
+
+.renvo-home .features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rh-space-4);
+}
+
+.renvo-home .feature-card {
+  background: var(--rh-white);
+  padding: var(--rh-space-6);
+  border-radius: var(--rh-radius-xl);
+  border: 1px solid var(--rh-gray-100);
+  transition: all var(--rh-transition-base);
+}
+
+.renvo-home .feature-card:hover {
+  box-shadow: var(--rh-shadow-lg);
+  border-color: var(--rh-gray-200);
+  transform: translateY(-2px);
+}
+
+.renvo-home .feature-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--rh-primary-500), var(--rh-primary-600));
+  border-radius: var(--rh-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rh-white);
+  margin-bottom: var(--rh-space-4);
+  box-shadow: var(--rh-shadow-md);
+}
+
+.renvo-home .feature-icon-svg {
+  width: 22px;
+  height: 22px;
+}
+
+.renvo-home .feature-title {
+  font-size: var(--rh-text-lg);
+  font-weight: var(--rh-font-semibold);
+  color: var(--rh-gray-900);
+  margin-bottom: var(--rh-space-2);
+}
+
+.renvo-home .feature-description {
+  color: var(--rh-gray-500);
+  line-height: 1.6;
+  font-size: var(--rh-text-sm);
+}
+
+/* =====================================================
+   AI SECTION
+   ===================================================== */
+.renvo-home .ai-section {
+  padding: var(--rh-section-padding) var(--rh-container-padding);
+  background: var(--rh-gray-900);
+  color: var(--rh-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.renvo-home .ai-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at top left, var(--rh-primary-600) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, var(--rh-primary-700) 0%, transparent 50%);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.renvo-home .ai-content {
+  position: relative;
+  z-index: 1;
+}
+
+.renvo-home .ai-section .section-header {
+  text-align: center;
+}
+
+.renvo-home .ai-label {
+  display: inline-block;
+  padding: var(--rh-space-2) var(--rh-space-4);
+  background: rgba(99, 102, 241, 0.2);
+  color: var(--rh-primary-300);
+  border-radius: var(--rh-radius-full);
+  font-size: var(--rh-text-xs);
+  font-weight: var(--rh-font-semibold);
+  margin-bottom: var(--rh-space-5);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.renvo-home .ai-title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: var(--rh-font-bold);
+  margin-bottom: var(--rh-space-4);
+  letter-spacing: -0.025em;
+  color: var(--rh-white);
+}
+
+.renvo-home .ai-subtitle {
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: var(--rh-section-gap);
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.renvo-home .ai-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rh-space-3);
+  margin-bottom: var(--rh-space-10);
+}
+
+.renvo-home .ai-feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--rh-radius-lg);
+  padding: var(--rh-space-5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all var(--rh-transition-base);
+}
+
+.renvo-home .ai-feature-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.renvo-home .ai-feature-title {
+  font-size: var(--rh-text-sm);
+  font-weight: var(--rh-font-semibold);
+  margin-bottom: var(--rh-space-1);
+  color: var(--rh-white);
+}
+
+.renvo-home .ai-feature-description {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--rh-text-sm);
+  line-height: 1.5;
+}
+
+.renvo-home .ai-cta {
+  text-align: center;
+}
+
+.renvo-home .ai-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rh-space-2);
+  padding: var(--rh-space-4) var(--rh-space-6);
+  min-height: 52px;
+  background: var(--rh-white);
+  color: var(--rh-gray-900);
+  text-decoration: none;
+  border-radius: var(--rh-radius-xl);
+  font-weight: var(--rh-font-semibold);
+  font-size: var(--rh-text-base);
+  transition: all var(--rh-transition-base);
+  box-shadow: var(--rh-shadow-xl);
+}
+
+.renvo-home .ai-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -12px rgba(255, 255, 255, 0.2);
+}
+
+/* =====================================================
+   TRUST SECTION
+   ===================================================== */
+.renvo-home .trust-section {
+  padding: var(--rh-section-padding) var(--rh-container-padding);
+  background: var(--rh-white);
+  position: relative;
+}
+
+.renvo-home .trust-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rh-gray-200), transparent);
+}
+
+.renvo-home .trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--rh-space-4);
+  margin-bottom: var(--rh-section-gap);
+}
+
+.renvo-home .trust-item {
+  text-align: center;
+  padding: var(--rh-space-4);
+}
+
+.renvo-home .trust-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto var(--rh-space-3);
+  background: var(--rh-gray-100);
+  border-radius: var(--rh-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rh-primary-500);
+}
+
+.renvo-home .trust-icon-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.renvo-home .trust-title {
+  font-size: var(--rh-text-sm);
+  font-weight: var(--rh-font-semibold);
+  color: var(--rh-gray-900);
+  margin-bottom: 2px;
+}
+
+.renvo-home .trust-subtitle {
+  color: var(--rh-gray-500);
+  font-size: var(--rh-text-xs);
+}
+
+.renvo-home .testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rh-space-4);
+}
+
+.renvo-home .testimonial-card {
+  background: var(--rh-gray-50);
+  border: 1px solid var(--rh-gray-100);
+  border-radius: var(--rh-radius-xl);
+  padding: var(--rh-space-6);
+  transition: all var(--rh-transition-base);
+}
+
+.renvo-home .testimonial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--rh-shadow-md);
+  border-color: var(--rh-gray-200);
+}
+
+.renvo-home .testimonial-quote {
+  font-size: var(--rh-text-sm);
+  line-height: 1.7;
+  color: var(--rh-gray-700);
+  margin-bottom: var(--rh-space-4);
+  font-style: italic;
+}
+
+.renvo-home .testimonial-author {
+  color: var(--rh-gray-500);
+  font-size: var(--rh-text-xs);
+  font-weight: var(--rh-font-medium);
+}
+
+/* =====================================================
+   PRICING SECTION
+   ===================================================== */
+.renvo-home .pricing-section {
+  padding: var(--rh-section-padding) var(--rh-container-padding);
+  background: var(--rh-gray-50);
+  position: relative;
+}
+
+.renvo-home .pricing-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rh-gray-200), transparent);
+}
+
+.renvo-home .pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rh-space-6);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.renvo-home .pricing-card {
+  background: var(--rh-white);
+  border: 2px solid var(--rh-gray-200);
+  border-radius: var(--rh-radius-2xl);
+  padding: var(--rh-space-8);
+  position: relative;
+  transition: all var(--rh-transition-base);
+}
+
+.renvo-home .pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--rh-shadow-lg);
+}
+
+.renvo-home .pricing-card--featured {
+  border-color: var(--rh-primary-500);
+  box-shadow: var(--rh-shadow-md);
+}
+
+.renvo-home .recommended-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--rh-primary-500);
+  color: var(--rh-white);
+  padding: var(--rh-space-1) var(--rh-space-4);
+  border-radius: var(--rh-radius-full);
+  font-size: 10px;
+  font-weight: var(--rh-font-bold);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.renvo-home .pricing-name {
+  font-size: var(--rh-text-xl);
+  font-weight: var(--rh-font-bold);
+  color: var(--rh-gray-900);
+  margin-bottom: var(--rh-space-1);
+}
+
+.renvo-home .pricing-subtitle {
+  color: var(--rh-gray-500);
+  margin-bottom: var(--rh-space-6);
+  font-size: var(--rh-text-sm);
+}
+
+.renvo-home .pricing-subtitle--accent {
+  color: var(--rh-primary-500);
+  font-weight: var(--rh-font-semibold);
+}
+
+.renvo-home .pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--rh-space-6);
+}
+
+.renvo-home .pricing-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rh-space-3);
+  margin-bottom: var(--rh-space-3);
+  color: var(--rh-gray-600);
+  line-height: 1.5;
+  font-size: var(--rh-text-sm);
+}
+
+.renvo-home .check-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--rh-gray-400);
+  margin-top: 1px;
+}
+
+.renvo-home .check-icon--accent {
+  color: var(--rh-primary-500);
+}
+
+.renvo-home .pricing-btn {
+  display: block;
+  width: 100%;
+  padding: var(--rh-space-4);
+  min-height: 48px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--rh-radius-xl);
+  font-weight: var(--rh-font-semibold);
+  font-size: var(--rh-text-sm);
+  transition: all var(--rh-transition-base);
+}
+
+.renvo-home .pricing-btn--secondary {
+  background: var(--rh-gray-100);
+  color: var(--rh-gray-900);
+  border: 1px solid var(--rh-gray-200);
+}
+
+.renvo-home .pricing-btn--secondary:hover {
+  background: var(--rh-gray-200);
+}
+
+.renvo-home .pricing-btn--primary {
+  background: var(--rh-primary-500);
+  color: var(--rh-white);
+  box-shadow: var(--rh-shadow-md);
+}
+
+.renvo-home .pricing-btn--primary:hover {
+  background: var(--rh-primary-600);
+  transform: translateY(-2px);
+  box-shadow: var(--rh-shadow-lg);
+}
+
+/* =====================================================
+   FAQ SECTION
+   ===================================================== */
+.renvo-home .faq-section {
+  padding: var(--rh-section-padding) var(--rh-container-padding);
+  background: var(--rh-white);
+  position: relative;
+}
+
+.renvo-home .faq-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rh-gray-200), transparent);
+}
+
+.renvo-home .faq-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.renvo-home .faq-section .section-title {
+  margin-bottom: var(--rh-space-10);
+}
+
+.renvo-home .faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rh-space-3);
+}
+
+.renvo-home .faq-item {
+  background: var(--rh-gray-50);
+  border: 1px solid var(--rh-gray-100);
+  border-radius: var(--rh-radius-xl);
+  overflow: hidden;
+  transition: all var(--rh-transition-base);
+}
+
+.renvo-home .faq-item:hover {
+  border-color: var(--rh-gray-200);
+}
+
+.renvo-home .faq-item--open {
+  background: var(--rh-white);
+  box-shadow: var(--rh-shadow-md);
+  border-color: var(--rh-gray-200);
+}
+
+.renvo-home .faq-toggle {
+  width: 100%;
+  padding: var(--rh-space-5);
+  min-height: 56px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--rh-space-4);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--rh-text-base);
+  font-weight: var(--rh-font-semibold);
+  color: var(--rh-gray-900);
+  text-align: left;
+  transition: color var(--rh-transition-fast);
+}
+
+.renvo-home .faq-toggle:hover {
+  color: var(--rh-primary-500);
+}
+
+.renvo-home .faq-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--rh-gray-400);
+  transition: transform var(--rh-transition-base);
+  flex-shrink: 0;
+}
+
+.renvo-home .faq-icon--rotated {
+  transform: rotate(180deg);
+  color: var(--rh-primary-500);
+}
+
+.renvo-home .faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--rh-transition-base), padding var(--rh-transition-base);
+}
+
+.renvo-home .faq-item--open .faq-content {
+  max-height: 250px;
+}
+
+.renvo-home .faq-content p {
+  padding: 0 var(--rh-space-5) var(--rh-space-5);
+  color: var(--rh-gray-600);
+  line-height: 1.7;
+  margin: 0;
+  font-size: var(--rh-text-sm);
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.renvo-home .footer {
+  background: var(--rh-gray-900);
+  color: var(--rh-white);
+  padding: var(--rh-section-padding) var(--rh-container-padding) var(--rh-space-8);
+}
+
+.renvo-home .footer-container {
+  max-width: var(--rh-container-max);
+  margin: 0 auto;
+}
+
+.renvo-home .footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rh-space-8);
+  margin-bottom: var(--rh-space-10);
+  text-align: center;
+}
+
+.renvo-home .footer-brand {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.renvo-home .footer-logo {
+  font-size: var(--rh-text-xl);
+  font-weight: var(--rh-font-bold);
+  display: inline-block;
+  margin-bottom: var(--rh-space-3);
+}
+
+.renvo-home .logo-dot {
+  color: var(--rh-primary-400);
+}
+
+.renvo-home .footer-description {
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  margin-bottom: var(--rh-space-4);
+  font-size: var(--rh-text-sm);
+}
+
+.renvo-home .footer-email a {
+  color: var(--rh-primary-400);
+  text-decoration: none;
+  font-weight: var(--rh-font-medium);
+  transition: color var(--rh-transition-fast);
+  font-size: var(--rh-text-sm);
+}
+
+.renvo-home .footer-email a:hover {
+  color: var(--rh-white);
+}
+
+.renvo-home .footer-links-section {
+  min-width: 100px;
+}
+
+.renvo-home .footer-heading {
+  font-size: var(--rh-text-sm);
+  font-weight: var(--rh-font-semibold);
+  margin-bottom: var(--rh-space-4);
+  color: var(--rh-white);
+}
+
+.renvo-home .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.renvo-home .footer-links li {
+  margin-bottom: var(--rh-space-2);
+}
+
+.renvo-home .footer-links a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: all var(--rh-transition-fast);
+  display: inline-block;
+  font-size: var(--rh-text-sm);
+  padding: var(--rh-space-1) 0;
+}
+
+.renvo-home .footer-links a:hover {
+  color: var(--rh-white);
+}
+
+.renvo-home .footer-bottom {
+  text-align: center;
+  padding-top: var(--rh-space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: var(--rh-text-xs);
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN - Tablet (640px+)
+   ===================================================== */
+@media (min-width: 640px) {
+  .renvo-home .pain-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--rh-space-5);
+  }
+
+  .renvo-home .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--rh-space-5);
+  }
+
+  .renvo-home .ai-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--rh-space-4);
+  }
+
+  .renvo-home .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+  }
+
+  .renvo-home .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: left;
+    gap: var(--rh-space-6);
+  }
+
+  .renvo-home .footer-brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+
+  .renvo-home .store-btn {
+    padding: var(--rh-space-4) var(--rh-space-6);
+  }
+
+  .renvo-home .store-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .renvo-home .store-name {
+    font-size: var(--rh-text-lg);
+  }
+
+  .renvo-home .phone-container {
+    width: 300px;
+    max-height: 620px;
+  }
+
+  .renvo-home .phone-glow {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN - Desktop (1024px+)
+   ===================================================== */
+@media (min-width: 1024px) {
+  .renvo-home .hero-section {
+    min-height: 100vh;
+    padding: var(--rh-space-24) var(--rh-container-padding);
+  }
+
+  .renvo-home .hero-content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--rh-space-12);
+    text-align: left;
+  }
+
+  .renvo-home .hero-text {
+    margin: 0;
+    order: 1;
+  }
+
+  .renvo-home .hero-phone {
+    order: 2;
+    min-height: 640px;
+  }
+
+  .renvo-home .hero-buttons {
+    justify-content: flex-start;
+  }
+
+  .renvo-home .phone-container {
+    width: 320px;
+    max-height: 660px;
+    border-radius: 48px;
+  }
+
+  .renvo-home .phone-screen {
+    border-radius: 40px;
+  }
+
+  .renvo-home .phone-notch {
+    width: 130px;
+    height: 26px;
+    top: 12px;
+  }
+
+  .renvo-home .phone-glow {
+    width: 320px;
+    height: 320px;
+  }
+
+  .renvo-home .mock-scroll {
+    padding: 50px 16px 95px;
+  }
+
+  .renvo-home .total-amount {
+    font-size: 2.75rem;
+  }
+
+  .renvo-home .pain-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--rh-space-6);
+  }
+
+  .renvo-home .pain-item {
+    padding: var(--rh-space-8);
+  }
+
+  .renvo-home .pain-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .renvo-home .pain-title {
+    font-size: var(--rh-text-lg);
+  }
+
+  .renvo-home .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--rh-space-6);
+  }
+
+  .renvo-home .feature-card {
+    padding: var(--rh-space-8);
+  }
+
+  .renvo-home .feature-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .renvo-home .feature-title {
+    font-size: var(--rh-text-xl);
+  }
+
+  .renvo-home .feature-description {
+    font-size: var(--rh-text-base);
+  }
+
+  .renvo-home .ai-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--rh-space-5);
+  }
+
+  .renvo-home .ai-feature-card {
+    padding: var(--rh-space-6);
+  }
+
+  .renvo-home .ai-feature-title {
+    font-size: var(--rh-text-base);
+  }
+
+  .renvo-home .trust-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--rh-space-6);
+  }
+
+  .renvo-home .trust-item {
+    padding: var(--rh-space-6);
+  }
+
+  .renvo-home .trust-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .renvo-home .trust-title {
+    font-size: var(--rh-text-lg);
+  }
+
+  .renvo-home .trust-subtitle {
+    font-size: var(--rh-text-sm);
+  }
+
+  .renvo-home .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--rh-space-6);
+  }
+
+  .renvo-home .testimonial-card {
+    padding: var(--rh-space-8);
+  }
+
+  .renvo-home .testimonial-quote {
+    font-size: var(--rh-text-base);
+  }
+
+  .renvo-home .testimonial-author {
+    font-size: var(--rh-text-sm);
+  }
+
+  .renvo-home .pricing-grid {
+    max-width: 860px;
+    gap: var(--rh-space-8);
+  }
+
+  .renvo-home .pricing-card {
+    padding: var(--rh-space-10);
+  }
+
+  .renvo-home .pricing-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .renvo-home .pricing-name {
+    font-size: var(--rh-text-2xl);
+  }
+
+  .renvo-home .pricing-feature {
+    font-size: var(--rh-text-base);
+  }
+
+  .renvo-home .pricing-btn {
+    font-size: var(--rh-text-base);
+  }
+
+  .renvo-home .faq-toggle {
+    padding: var(--rh-space-6);
+    font-size: var(--rh-text-lg);
+  }
+
+  .renvo-home .faq-content p {
+    padding: 0 var(--rh-space-6) var(--rh-space-6);
+    font-size: var(--rh-text-base);
+  }
+
+  .renvo-home .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--rh-space-16);
+  }
+
+  .renvo-home .footer-brand {
+    grid-column: auto;
+    max-width: 340px;
+  }
+
+  .renvo-home .footer-logo {
+    font-size: var(--rh-text-2xl);
+  }
+
+  .renvo-home .footer-description {
+    font-size: var(--rh-text-base);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN - Large Desktop (1280px+)
+   ===================================================== */
+@media (min-width: 1280px) {
+  .renvo-home .hero-content {
+    gap: var(--rh-space-16);
+  }
+
+  .renvo-home .hero-title {
+    font-size: var(--rh-text-5xl);
+  }
+
+  .renvo-home .hero-description {
+    font-size: var(--rh-text-xl);
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .renvo-home .fade-in-section,
+  .renvo-home .store-btn,
+  .renvo-home .pain-item,
+  .renvo-home .feature-card,
+  .renvo-home .ai-feature-card,
+  .renvo-home .testimonial-card,
+  .renvo-home .pricing-card,
+  .renvo-home .faq-item,
+  .renvo-home .faq-icon,
+  .renvo-home .faq-content {
+    transition: none;
+  }
+
+  .renvo-home .badge-dot,
+  .renvo-home .phone-glow {
+    animation: none;
+  }
+
+  .renvo-home .fade-in-section {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =====================================================
+   PRINT STYLES
+   ===================================================== */
+@media print {
+  .renvo-home .hero-phone,
+  .renvo-home .store-btn,
+  .renvo-home .ai-cta-btn,
+  .renvo-home .pricing-btn,
+  .renvo-home .footer {
+    display: none !important;
+  }
+
+  .renvo-home {
+    background: white !important;
+    color: black !important;
+  }
+
+  .renvo-home * {
+    box-shadow: none !important;
+  }
+}
+
+/* =====================================================
+   DARK MODE SUPPORT
+   ===================================================== */
+.dark .renvo-home {
+  /* Override light mode colors for dark mode */
+  --rh-white: #0f172a;
+  background-color: #0f172a !important;
+  --rh-black: #ffffff;
+  --rh-gray-50: #1e293b;
+  --rh-gray-100: #334155;
+  --rh-gray-200: #475569;
+  --rh-gray-300: #64748b;
+  --rh-gray-400: #94a3b8;
+  --rh-gray-500: #cbd5e1;
+  --rh-gray-600: #e2e8f0;
+  --rh-gray-700: #f1f5f9;
+  --rh-gray-800: #f8fafc;
+  --rh-gray-900: #ffffff;
+  --rh-gray-950: #f8fafc;
+
+  /* Primary colors for dark mode */
+  --rh-primary-50: #1e1b4b;
+  --rh-primary-100: #312e81;
+  --rh-primary-200: #3730a3;
+  --rh-primary-300: #4338ca;
+  --rh-primary-400: #4f46e5;
+  --rh-primary-500: #6366f1;
+  --rh-primary-600: #818cf8;
+  --rh-primary-700: #a5b4fc;
+
+  /* Semantic colors for dark mode */
+  --rh-success: #34d399;
+  --rh-success-light: rgba(52, 211, 153, 0.15);
+  --rh-warning: #fbbf24;
+  --rh-warning-light: rgba(251, 191, 36, 0.15);
+  --rh-danger: #f87171;
+  --rh-danger-light: rgba(248, 113, 113, 0.15);
+
+  /* Shadows for dark mode */
+  --rh-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --rh-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --rh-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+  --rh-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
+  --rh-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+
+  background: #0f172a;
+  color: #ffffff;
+}
+
+/* Dark mode specific overrides */
+.dark .renvo-home .hero-section {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+}
+
+.dark .renvo-home .hero-section::before {
+  background: radial-gradient(ellipse, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+  opacity: 0.5;
+}
+
+.dark .renvo-home .hero-badge {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .renvo-home .store-btn {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.dark .renvo-home .store-btn:hover {
+  background: #e2e8f0;
+}
+
+.dark .renvo-home .store-btn--secondary {
+  background: #1e293b;
+  color: #ffffff;
+  border-color: #334155;
+}
+
+.dark .renvo-home .store-btn--secondary:hover {
+  background: #334155;
+  border-color: #475569;
+}
+
+.dark .renvo-home .phone-screen {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+}
+
+.dark .renvo-home .total-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .renvo-home .suggestion-card {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.dark .renvo-home .renewal-item {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .renvo-home .renewal-item:hover {
+  border-color: #475569;
+}
+
+.dark .renvo-home .phone-nav {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .renvo-home .pain-section {
+  background: #0f172a;
+}
+
+.dark .renvo-home .pain-item {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .renvo-home .pain-item:hover {
+  border-color: #475569;
+}
+
+.dark .renvo-home .features-section {
+  background: #1e293b;
+}
+
+.dark .renvo-home .feature-card {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+.dark .renvo-home .feature-card:hover {
+  border-color: #475569;
+}
+
+.dark .renvo-home .ai-section {
+  background: #0f172a;
+}
+
+.dark .renvo-home .ai-bg {
+  background: 
+    radial-gradient(ellipse at top left, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+}
+
+.dark .renvo-home .trust-section {
+  background: #0f172a;
+}
+
+.dark .renvo-home .trust-item {
+  background: transparent;
+}
+
+.dark .renvo-home .trust-icon {
+  background: #1e293b;
+}
+
+.dark .renvo-home .testimonial-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .renvo-home .testimonial-card:hover {
+  border-color: #475569;
+}
+
+.dark .renvo-home .pricing-section {
+  background: #1e293b;
+}
+
+.dark .renvo-home .pricing-card {
+  background: #0f172a;
+  border-color: #334155;
+}
+
+.dark .renvo-home .pricing-card:hover {
+  border-color: #475569;
+}
+
+.dark .renvo-home .pricing-card--featured {
+  border-color: #6366f1;
+}
+
+.dark .renvo-home .pricing-btn--secondary {
+  background: #1e293b;
+  color: #ffffff;
+  border-color: #334155;
+}
+
+.dark .renvo-home .pricing-btn--secondary:hover {
+  background: #334155;
+}
+
+.dark .renvo-home .faq-section {
+  background: #0f172a;
+}
+
+.dark .renvo-home .faq-item {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .renvo-home .faq-item:hover {
+  border-color: #475569;
+}
+
+.dark .renvo-home .faq-item--open {
+  background: #0f172a;
+  border-color: #475569;
+}
+
+.dark .renvo-home .footer {
+  background: #020617;
+}

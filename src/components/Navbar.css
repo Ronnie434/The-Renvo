@@ -1,0 +1,681 @@
+/* =========================================
+   RENVO NAVBAR - Scoped Styles
+   All classes prefixed with 'renvo-nav' 
+   to prevent CSS collisions
+   ========================================= */
+
+/* =========================================
+   Global Scroll Lock (Required for mobile menu)
+   ========================================= */
+html.renvo-nav-open,
+body.renvo-nav-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+body.renvo-nav-open {
+    /* iOS scroll position is handled via JS */
+    overscroll-behavior: none;
+}
+
+/* =========================================
+   CSS Custom Properties - Scoped to navbar
+   ========================================= */
+.renvo-nav,
+.renvo-nav__mobile,
+.renvo-nav__overlay,
+.renvo-nav-spacer {
+    --renvo-nav-height: 72px;
+    --renvo-nav-bg: rgba(255, 255, 255, 0.98);
+    --renvo-nav-bg-scrolled: rgba(255, 255, 255, 0.92);
+    --renvo-nav-bg-solid: #ffffff;
+    --renvo-nav-text: #111827;
+    --renvo-nav-text-muted: #6b7280;
+    --renvo-nav-primary: #6366f1;
+    --renvo-nav-primary-hover: #4f46e5;
+    --renvo-nav-primary-light: rgba(99, 102, 241, 0.08);
+    --renvo-nav-primary-focus: rgba(99, 102, 241, 0.2);
+    --renvo-nav-border: rgba(0, 0, 0, 0.06);
+    --renvo-nav-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --renvo-nav-shadow-scrolled: 0 1px 3px rgba(0, 0, 0, 0.06), 
+                                  0 4px 12px rgba(0, 0, 0, 0.04);
+    --renvo-nav-radius: 8px;
+    --renvo-nav-radius-lg: 12px;
+    --renvo-nav-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --renvo-nav-transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --renvo-nav-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+                       'Helvetica Neue', Arial, sans-serif;
+}
+
+/* =========================================
+   Spacer for fixed navbar
+   ========================================= */
+.renvo-nav-spacer {
+    height: var(--renvo-nav-height);
+    flex-shrink: 0;
+}
+
+/* =========================================
+   Main Navbar
+   ========================================= */
+.renvo-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--renvo-nav-height);
+    background: var(--renvo-nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: 
+        background var(--renvo-nav-transition),
+        border-color var(--renvo-nav-transition),
+        box-shadow var(--renvo-nav-transition);
+    font-family: var(--renvo-nav-font);
+}
+
+.renvo-nav--scrolled {
+    background: var(--renvo-nav-bg-scrolled);
+    border-bottom-color: var(--renvo-nav-border);
+    box-shadow: var(--renvo-nav-shadow-scrolled);
+}
+
+/* =========================================
+   Container
+   ========================================= */
+.renvo-nav__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+@media (min-width: 1400px) {
+    .renvo-nav__container {
+        max-width: 1320px;
+        padding: 0 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .renvo-nav__container {
+        padding: 0 16px;
+    }
+}
+
+/* =========================================
+   Logo
+   ========================================= */
+.renvo-nav__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0;
+    padding: 8px 4px;
+    margin: -8px -4px;
+    border-radius: var(--renvo-nav-radius);
+    transition: opacity var(--renvo-nav-transition);
+}
+
+.renvo-nav__logo:hover {
+    opacity: 0.8;
+}
+
+.renvo-nav__logo:focus {
+    outline: none;
+}
+
+.renvo-nav__logo:focus-visible {
+    outline: 2px solid var(--renvo-nav-primary);
+    outline-offset: 2px;
+}
+
+.renvo-nav__logo-text {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--renvo-nav-text);
+    letter-spacing: -0.025em;
+}
+
+.renvo-nav__logo-dot {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--renvo-nav-primary);
+    margin-left: 1px;
+}
+
+/* =========================================
+   Desktop Navigation
+   ========================================= */
+.renvo-nav__desktop {
+    display: none;
+    align-items: center;
+    gap: 4px;
+}
+
+@media (min-width: 768px) {
+    .renvo-nav__desktop {
+        display: flex;
+    }
+}
+
+.renvo-nav__links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.renvo-nav__item {
+    margin: 0;
+    padding: 0;
+}
+
+.renvo-nav__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--renvo-nav-text-muted);
+    text-decoration: none;
+    border-radius: var(--renvo-nav-radius);
+    transition: 
+        color var(--renvo-nav-transition),
+        background var(--renvo-nav-transition);
+}
+
+.renvo-nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 16px;
+    height: 2px;
+    background: var(--renvo-nav-primary);
+    border-radius: 1px;
+    transition: transform var(--renvo-nav-transition);
+}
+
+.renvo-nav__link:hover {
+    color: var(--renvo-nav-text);
+    background: var(--renvo-nav-primary-light);
+}
+
+.renvo-nav__link:focus {
+    outline: none;
+}
+
+.renvo-nav__link:focus-visible {
+    outline: 2px solid var(--renvo-nav-primary);
+    outline-offset: -2px;
+    background: var(--renvo-nav-primary-light);
+}
+
+.renvo-nav__link--active {
+    color: var(--renvo-nav-text);
+}
+
+.renvo-nav__link--active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* =========================================
+   Desktop CTA Button
+   ========================================= */
+.renvo-nav__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--renvo-nav-primary);
+    border: none;
+    border-radius: var(--renvo-nav-radius);
+    text-decoration: none;
+    cursor: pointer;
+    transition: 
+        background var(--renvo-nav-transition),
+        transform var(--renvo-nav-transition),
+        box-shadow var(--renvo-nav-transition);
+    box-shadow: 0 1px 2px rgba(99, 102, 241, 0.2),
+                0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+.renvo-nav__cta:hover {
+    background: var(--renvo-nav-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(99, 102, 241, 0.25),
+                0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.renvo-nav__cta:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(99, 102, 241, 0.2);
+}
+
+.renvo-nav__cta:focus {
+    outline: none;
+}
+
+.renvo-nav__cta:focus-visible {
+    outline: 2px solid var(--renvo-nav-primary);
+    outline-offset: 2px;
+}
+
+.renvo-nav__cta-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   Mobile Toggle Button
+   ========================================= */
+.renvo-nav__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: var(--renvo-nav-radius);
+    cursor: pointer;
+    transition: background var(--renvo-nav-transition);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.renvo-nav__toggle:hover {
+    background: var(--renvo-nav-primary-light);
+}
+
+.renvo-nav__toggle:focus {
+    outline: none;
+}
+
+.renvo-nav__toggle:focus-visible {
+    outline: 2px solid var(--renvo-nav-primary);
+    outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+    .renvo-nav__toggle {
+        display: none;
+    }
+}
+
+.renvo-nav__toggle-line {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--renvo-nav-text);
+    border-radius: 2px;
+    transition: all var(--renvo-nav-transition-slow);
+    transform-origin: center;
+}
+
+/* Hamburger to X animation */
+.renvo-nav__toggle--active .renvo-nav__toggle-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.renvo-nav__toggle--active .renvo-nav__toggle-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.renvo-nav__toggle--active .renvo-nav__toggle-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================
+   Mobile Menu Overlay
+   ========================================= */
+.renvo-nav__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 998;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 
+        opacity var(--renvo-nav-transition-slow),
+        visibility var(--renvo-nav-transition-slow);
+}
+
+.renvo-nav__overlay--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (min-width: 768px) {
+    .renvo-nav__overlay {
+        display: none;
+    }
+}
+
+/* =========================================
+   Mobile Menu Panel
+   ========================================= */
+.renvo-nav__mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--renvo-nav-bg-solid);
+    transform: translateX(100%);
+    transition: transform var(--renvo-nav-transition-slow);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    font-family: var(--renvo-nav-font);
+    -webkit-overflow-scrolling: touch;
+}
+
+.renvo-nav__mobile--open {
+    transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+    .renvo-nav__mobile {
+        display: none;
+    }
+}
+
+/* Mobile Menu Header */
+.renvo-nav__mobile-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--renvo-nav-height);
+    padding: 0 16px 0 24px;
+    background: var(--renvo-nav-bg-solid);
+    border-bottom: 1px solid var(--renvo-nav-border);
+}
+
+.renvo-nav__mobile-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--renvo-nav-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.renvo-nav__mobile-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: var(--renvo-nav-radius);
+    color: var(--renvo-nav-text-muted);
+    cursor: pointer;
+    transition: 
+        background var(--renvo-nav-transition),
+        color var(--renvo-nav-transition);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.renvo-nav__mobile-close:hover {
+    background: var(--renvo-nav-primary-light);
+    color: var(--renvo-nav-text);
+}
+
+.renvo-nav__mobile-close:focus {
+    outline: none;
+}
+
+.renvo-nav__mobile-close:focus-visible {
+    outline: 2px solid var(--renvo-nav-primary);
+    outline-offset: -2px;
+}
+
+.renvo-nav__mobile-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Mobile Theme Toggle */
+.renvo-nav__mobile-theme {
+    display: flex;
+    justify-content: center;
+    padding: var(--rh-space-4) 0;
+    border-bottom: 1px solid var(--renvo-nav-border);
+    margin-bottom: var(--rh-space-4);
+}
+/* Mobile Menu Content */
+.renvo-nav__mobile-content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 16px 32px;
+    min-height: calc(100% - var(--renvo-nav-height));
+}
+
+.renvo-nav__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.renvo-nav__mobile-item {
+    opacity: 0;
+    transform: translateX(16px);
+    transition: 
+        opacity var(--renvo-nav-transition-slow),
+        transform var(--renvo-nav-transition-slow);
+}
+
+.renvo-nav__mobile--open .renvo-nav__mobile-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Stagger delays applied via inline style in JSX */
+
+.renvo-nav__mobile-link {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 14px 20px;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--renvo-nav-text-muted);
+    text-decoration: none;
+    border-radius: var(--renvo-nav-radius-lg);
+    transition: 
+        color var(--renvo-nav-transition),
+        background var(--renvo-nav-transition);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.renvo-nav__mobile-link:hover,
+.renvo-nav__mobile-link:focus {
+    color: var(--renvo-nav-text);
+    background: var(--renvo-nav-primary-light);
+}
+
+.renvo-nav__mobile-link:focus {
+    outline: none;
+}
+
+.renvo-nav__mobile-link:focus-visible {
+    outline: 2px solid var(--renvo-nav-primary);
+    outline-offset: -2px;
+}
+
+.renvo-nav__mobile-link--active {
+    color: var(--renvo-nav-primary);
+    background: var(--renvo-nav-primary-light);
+    font-weight: 600;
+}
+
+/* =========================================
+   Mobile CTA Button
+   ========================================= */
+.renvo-nav__mobile-cta-wrapper {
+    margin-top: auto;
+    padding-top: 24px;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: 
+        opacity var(--renvo-nav-transition-slow),
+        transform var(--renvo-nav-transition-slow);
+    transition-delay: 0.15s;
+}
+
+.renvo-nav__mobile--open .renvo-nav__mobile-cta-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.renvo-nav__mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 52px;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--renvo-nav-primary);
+    border: none;
+    border-radius: var(--renvo-nav-radius-lg);
+    text-decoration: none;
+    cursor: pointer;
+    transition: 
+        background var(--renvo-nav-transition),
+        box-shadow var(--renvo-nav-transition);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.renvo-nav__mobile-cta:hover,
+.renvo-nav__mobile-cta:focus {
+    background: var(--renvo-nav-primary-hover);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.renvo-nav__mobile-cta:focus {
+    outline: none;
+}
+
+.renvo-nav__mobile-cta:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.renvo-nav__mobile-cta:active {
+    box-shadow: 0 1px 4px rgba(99, 102, 241, 0.2);
+}
+
+.renvo-nav__mobile-cta svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   Reduced Motion Support
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+    .renvo-nav,
+    .renvo-nav__link,
+    .renvo-nav__link::after,
+    .renvo-nav__cta,
+    .renvo-nav__toggle,
+    .renvo-nav__toggle-line,
+    .renvo-nav__overlay,
+    .renvo-nav__mobile,
+    .renvo-nav__mobile-item,
+    .renvo-nav__mobile-link,
+    .renvo-nav__mobile-cta-wrapper,
+    .renvo-nav__mobile-cta,
+    .renvo-nav__mobile-close,
+    .renvo-nav__logo {
+        transition: none;
+    }
+    
+    .renvo-nav__mobile-item {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .renvo-nav__mobile-cta-wrapper {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =========================================
+   Print Styles
+   ========================================= */
+@media print {
+    .renvo-nav,
+    .renvo-nav__overlay,
+    .renvo-nav__mobile,
+    .renvo-nav-spacer {
+        display: none !important;
+    }
+}
+
+/* =========================================
+   Dark Mode Support
+   ========================================= */
+.dark .renvo-nav,
+.dark .renvo-nav__mobile,
+.dark .renvo-nav__overlay,
+.dark .renvo-nav-spacer {
+    --renvo-nav-bg: rgba(15, 23, 42, 0.95);
+    --renvo-nav-bg-scrolled: rgba(15, 23, 42, 0.92);
+    --renvo-nav-bg-solid: #0f172a;
+    --renvo-nav-text: #f9fafb;
+    --renvo-nav-text-muted: #94a3b8;
+    --renvo-nav-border: rgba(255, 255, 255, 0.1);
+    --renvo-nav-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --renvo-nav-shadow-scrolled: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --renvo-nav-primary: #38bdf8;
+    --renvo-nav-primary-hover: #0ea5e9;
+    --renvo-nav-primary-light: rgba(56, 189, 248, 0.1);
+    --renvo-nav-primary-focus: rgba(56, 189, 248, 0.2);
+}
+
+.dark .renvo-nav__overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
