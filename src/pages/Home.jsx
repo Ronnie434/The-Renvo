@@ -573,9 +573,9 @@ const Home = () => {
             <div className="footer-links-section">
               <h4 className="footer-heading">Company</h4>
               <ul className="footer-links">
-                <li><Link to="#">About</Link></li>
-                <li><Link to="#">Privacy Policy</Link></li>
-                <li><Link to="#">Terms of Service</Link></li>
+                <li><a href="#">About</a></li>
+                <li><Link to="/privacy">Privacy Policy</Link></li>
+                <li><Link to="/terms">Terms of Service</Link></li>
               </ul>
             </div>
           </div>

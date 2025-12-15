@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home.jsx';
 import Pricing from './pages/Pricing.jsx';
 import Features from './pages/Features.jsx';
+import Privacy from './pages/Privacy.jsx';
+import Terms from './pages/Terms.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import './App.css';
 
@@ -19,6 +21,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/features" element={<Features />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </main>
       </div>
