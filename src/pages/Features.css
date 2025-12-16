@@ -297,6 +297,30 @@
   }
 }
 
+/* Dark mode support for beta banner */
+.dark .beta-banner {
+  background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
+}
+
+.dark .beta-banner::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+}
+
+.dark .beta-banner-icon {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dark .beta-banner-button {
+  background: #1e293b;
+  color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.dark .beta-banner-button:hover {
+  background: #334155;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
 
 /* =====================================================
    MODAL STYLES
