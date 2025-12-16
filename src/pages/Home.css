@@ -164,6 +164,125 @@
 }
 
 /* =====================================================
+   BETA BANNER (unscoped for consistency)
+   ===================================================== */
+.beta-banner {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  padding: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.beta-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.beta-banner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.beta-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.beta-banner-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.beta-banner-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.beta-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.beta-banner-label {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.beta-banner-message {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+.beta-banner-button {
+  background: #ffffff;
+  color: #6366f1;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+}
+
+.beta-banner-button:hover {
+  background: #f3f4f6;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.beta-banner-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .beta-banner-message {
+    display: none;
+  }
+  
+  .beta-banner-container {
+    justify-content: center;
+  }
+}
+
+/* =====================================================
    SHARED COMPONENTS
    ===================================================== */
 .renvo-home .section-container {
@@ -1466,7 +1585,15 @@
   margin-bottom: var(--rh-space-2);
 }
 
-.renvo-home .footer-links a {
+/* Button reset for footer links */
+.renvo-home .footer-links button.footer-link-button {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.renvo-home .footer-links a,
+.renvo-home .footer-links button.footer-link-button {
   color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
   transition: all var(--rh-transition-fast);
@@ -1475,9 +1602,11 @@
   padding: var(--rh-space-1) 0;
 }
 
-.renvo-home .footer-links a:hover {
+.renvo-home .footer-links a:hover,
+.renvo-home .footer-links button.footer-link-button:hover {
   color: var(--rh-white);
 }
+
 
 .renvo-home .footer-bottom {
   text-align: center;
@@ -1820,6 +1949,155 @@
 }
 
 /* =====================================================
+   MODAL STYLES
+   ===================================================== */
+.renvo-home .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: var(--rh-space-4);
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.renvo-home .modal-content {
+  background: var(--rh-white);
+  border-radius: var(--rh-radius-2xl);
+  padding: var(--rh-space-8);
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--rh-shadow-2xl);
+  border: 1px solid var(--rh-gray-200);
+  text-align: center;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-20px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.renvo-home .modal-close {
+  position: absolute;
+  top: var(--rh-space-4);
+  right: var(--rh-space-4);
+  width: 32px;
+  height: 32px;
+  background: var(--rh-gray-100);
+  border: none;
+  border-radius: var(--rh-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--rh-transition-fast);
+  color: var(--rh-gray-500);
+}
+
+.renvo-home .modal-close:hover {
+  background: var(--rh-gray-200);
+  color: var(--rh-gray-900);
+  transform: rotate(90deg);
+}
+
+.renvo-home .modal-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.renvo-home .modal-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--rh-primary-100);
+  border-radius: var(--rh-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--rh-space-5);
+  color: var(--rh-primary-500);
+}
+
+.renvo-home .modal-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2;
+}
+
+.renvo-home .modal-button {
+  width: 100%;
+  padding: var(--rh-space-4) var(--rh-space-6);
+  min-height: 48px;
+  background: var(--rh-primary-500);
+  color: var(--rh-white);
+  border: none;
+  border-radius: var(--rh-radius-xl);
+  font-family: inherit;
+  font-size: var(--rh-text-base);
+  font-weight: var(--rh-font-semibold);
+  cursor: pointer;
+  transition: all var(--rh-transition-base);
+  box-shadow: var(--rh-shadow-md);
+  margin-top: var(--rh-space-5);
+}
+
+.renvo-home .modal-button:hover {
+  background: var(--rh-primary-600);
+  transform: translateY(-2px);
+  box-shadow: var(--rh-shadow-lg);
+}
+
+.renvo-home .modal-button:active {
+  transform: translateY(0);
+}
+
+.renvo-home .modal-icon--beta {
+  background: linear-gradient(135deg, var(--rh-primary-500), var(--rh-primary-600));
+}
+
+.renvo-home .modal-icon--beta svg {
+  color: var(--rh-white);
+}
+
+.renvo-home .modal-title {
+  font-size: var(--rh-text-2xl);
+  font-weight: var(--rh-font-bold);
+  color: var(--rh-gray-900);
+  margin-bottom: var(--rh-space-3);
+  letter-spacing: -0.025em;
+}
+
+.renvo-home .modal-description {
+  color: var(--rh-gray-600);
+  font-size: var(--rh-text-base);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =====================================================
    DARK MODE SUPPORT
    ===================================================== */
 .dark .renvo-home {
@@ -2014,6 +2292,51 @@
 
 .dark .renvo-home .testimonial-quote {
   color: #cbd5e1;
+
+/* Modal dark mode styles */
+.dark .renvo-home .modal-overlay {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.dark .renvo-home .modal-content {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .renvo-home .modal-close {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.dark .renvo-home .modal-close:hover {
+  background: #475569;
+  color: #ffffff;
+}
+
+.dark .renvo-home .modal-icon {
+  background: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+}
+
+.dark .renvo-home .modal-title {
+  color: #ffffff;
+}
+
+.dark .renvo-home .modal-button {
+  background: var(--rh-primary-500);
+}
+
+.dark .renvo-home .modal-button:hover {
+  background: var(--rh-primary-600);
+}
+
+.dark .renvo-home .modal-icon--beta {
+  background: linear-gradient(135deg, var(--rh-primary-500), var(--rh-primary-600));
+}
+
+.dark .renvo-home .modal-description {
+  color: #cbd5e1;
+}
 }
 
 .dark .renvo-home .pricing-section {
@@ -2081,11 +2404,13 @@
   color: #ffffff !important;
 }
 
-.dark .renvo-home .footer-links a {
+.dark .renvo-home .footer-links a,
+.dark .renvo-home .footer-links button.footer-link-button {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.dark .renvo-home .footer-links a:hover {
+.dark .renvo-home .footer-links a:hover,
+.dark .renvo-home .footer-links button.footer-link-button:hover {
   color: #ffffff !important;
 }
 

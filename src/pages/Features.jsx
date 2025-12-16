@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Features.css';
 
 const Features = () => {
   const [activeSection, setActiveSection] = useState('');
+  const [showBetaModal, setShowBetaModal] = useState(false);
+  const [showComingSoonModal, setShowComingSoonModal] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +33,29 @@ const Features = () => {
     }
   };
 
+  const handleAppStoreClick = (e) => {
+    e.preventDefault();
+    setShowBetaModal(true);
+  };
+
+  const handleGooglePlayClick = (e) => {
+    e.preventDefault();
+    setShowComingSoonModal(true);
+  };
+
+  const closeBetaModal = () => {
+    setShowBetaModal(false);
+  };
+
+  const closeComingSoonModal = () => {
+    setShowComingSoonModal(false);
+  };
+
+  const handleBetaTestingClick = () => {
+    window.open('https://testflight.apple.com/join/Sjk4tf75', '_blank');
+    setShowBetaModal(false);
+  };
+
   const navItems = [
     { id: 'subscription-control', label: 'Payment Control' },
     { id: 'financial-clarity', label: 'Financial Clarity' },
@@ -41,6 +67,73 @@ const Features = () => {
 
   return (
     <div className="fp-page">
+      {/* Beta Banner */}
+      <div className="beta-banner">
+        <div className="beta-banner-container">
+          <div className="beta-banner-content">
+            <div className="beta-banner-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div className="beta-banner-text">
+              <span className="beta-banner-label">🚀 Beta Testing Now Available</span>
+              <span className="beta-banner-message">The Renvo is currently in beta testing. Join now to be among the first to experience it!</span>
+            </div>
+          </div>
+          <button onClick={handleAppStoreClick} className="beta-banner-button">
+            Try Beta Now →
+          </button>
+        </div>
+      </div>
+
+      {/* Beta Testing Modal */}
+      {showBetaModal && (
+        <div className="modal-overlay" onClick={closeBetaModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeBetaModal}>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="modal-icon modal-icon--beta">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 className="modal-title">Beta Testing</h3>
+            <p className="modal-description">
+              The app is currently in beta testing. Please click below to get started with beta testing.
+            </p>
+            <button className="modal-button" onClick={handleBetaTestingClick}>
+              Get Started with TestFlight
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Coming Soon Modal */}
+      {showComingSoonModal && (
+        <div className="modal-overlay" onClick={closeComingSoonModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeComingSoonModal}>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="modal-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="modal-title">Coming Soon</h3>
+            <p className="modal-description">
+              The Renvo for Android is coming soon! Stay tuned for updates.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="fp-hero">
         <div className="fp-container">
@@ -657,18 +750,18 @@ const Features = () => {
               Join thousands who've discovered what they're really paying for. Start with our free plan — upgrade whenever you're ready.
             </p>
             <div className="fp-cta__buttons">
-              <a href="#" className="fp-btn fp-btn--primary fp-btn--lg">
+              <button onClick={handleAppStoreClick} className="fp-btn fp-btn--primary fp-btn--lg">
                 <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                 </svg>
                 Download for iOS
-              </a>
-              <a href="#" className="fp-btn fp-btn--outline fp-btn--lg">
+              </button>
+              <button onClick={handleGooglePlayClick} className="fp-btn fp-btn--outline fp-btn--lg">
                 <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
                 </svg>
                 Download for Android
-              </a>
+              </button>
             </div>
             <div className="fp-cta__meta">
               <a href="/pricing" className="fp-cta__link">
@@ -690,6 +783,40 @@ const Features = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="fp-footer">
+        <div className="fp-footer-container">
+          <div className="fp-footer-grid">
+            <div className="fp-footer-brand">
+              <span className="fp-footer-logo">The Renvo<span className="fp-footer-logo-dot">.</span></span>
+              <p className="fp-footer-description">Track, manage, and optimize your recurring expenses effortlessly.</p>
+              <div className="fp-footer-email">
+                <a href="mailto:contact@therenvo.com">contact@therenvo.com</a>
+              </div>
+            </div>
+            <div className="fp-footer-links-section">
+              <h4 className="fp-footer-heading">Product</h4>
+              <ul className="fp-footer-links">
+                <li><Link to="/features">Features</Link></li>
+                <li><Link to="/pricing">Pricing</Link></li>
+                <li><button onClick={handleAppStoreClick} className="fp-footer-link-button">Download</button></li>
+              </ul>
+            </div>
+            <div className="fp-footer-links-section">
+              <h4 className="fp-footer-heading">Company</h4>
+              <ul className="fp-footer-links">
+                <li><a href="#">About</a></li>
+                <li><Link to="/privacy">Privacy Policy</Link></li>
+                <li><Link to="/terms">Terms of Service</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="fp-footer-bottom">
+            © 2025 The Renvo. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

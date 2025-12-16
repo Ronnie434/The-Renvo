@@ -5,6 +5,7 @@ import './Pricing.css';
 const Pricing = () => {
     const [isYearly, setIsYearly] = useState(true);
     const [openFaq, setOpenFaq] = useState(null);
+    const [showBetaModal, setShowBetaModal] = useState(false);
 
     const toggleBilling = () => {
         setIsYearly(!isYearly);
@@ -12,6 +13,20 @@ const Pricing = () => {
 
     const toggleFaq = (index) => {
         setOpenFaq(openFaq === index ? null : index);
+    };
+
+    const handleDownloadClick = (e) => {
+        e.preventDefault();
+        setShowBetaModal(true);
+    };
+
+    const closeBetaModal = () => {
+        setShowBetaModal(false);
+    };
+
+    const handleBetaTestingClick = () => {
+        window.open('https://testflight.apple.com/join/Sjk4tf75', '_blank');
+        setShowBetaModal(false);
     };
 
     // Reusable Check Icon Component
@@ -47,6 +62,51 @@ const Pricing = () => {
 
     return (
         <div className="pricing-page-container">
+            {/* Beta Banner */}
+            <div className="beta-banner">
+                <div className="beta-banner-container">
+                    <div className="beta-banner-content">
+                        <div className="beta-banner-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div className="beta-banner-text">
+                            <span className="beta-banner-label">🚀 Beta Testing Now Available</span>
+                            <span className="beta-banner-message">The Renvo is currently in beta testing. Join now to be among the first to experience it!</span>
+                        </div>
+                    </div>
+                    <button onClick={handleDownloadClick} className="beta-banner-button">
+                        Try Beta Now →
+                    </button>
+                </div>
+            </div>
+
+            {/* Beta Testing Modal */}
+            {showBetaModal && (
+                <div className="modal-overlay" onClick={closeBetaModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-close" onClick={closeBetaModal}>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <div className="modal-icon modal-icon--beta">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 className="modal-title">Beta Testing</h3>
+                        <p className="modal-description">
+                            The app is currently in beta testing. Please click below to get started with beta testing.
+                        </p>
+                        <button className="modal-button" onClick={handleBetaTestingClick}>
+                            Get Started with TestFlight
+                        </button>
+                    </div>
+                </div>
+            )}
+
             {/* ============================================ */}
             {/* HEADER SECTION */}
             {/* ============================================ */}
@@ -158,9 +218,9 @@ const Pricing = () => {
                                 </div>
 
                                 <div className="pricing-card-footer">
-                                    <Link to="#" className="pricing-card-button pricing-card-button-secondary">
+                                    <button onClick={handleDownloadClick} className="pricing-card-button pricing-card-button-secondary">
                                         Start Free
-                                    </Link>
+                                    </button>
                                     <p className="pricing-card-footer-note">No credit card required • No commitment</p>
                                 </div>
                             </div>
@@ -223,9 +283,9 @@ const Pricing = () => {
                                 </div>
 
                                 <div className="pricing-card-footer">
-                                    <Link to="#" className="pricing-card-button pricing-card-button-primary">
+                                    <button onClick={handleDownloadClick} className="pricing-card-button pricing-card-button-primary">
                                         Upgrade to Premium
-                                    </Link>
+                                    </button>
                                     <p className="pricing-card-footer-note">7-day money-back guarantee • Cancel anytime</p>
                                 </div>
                             </div>
@@ -785,12 +845,12 @@ const Pricing = () => {
                             Join thousands who've taken control of their recurring expenses. Start free today, upgrade when you're ready.
                         </p>
                         <div className="pricing-cta-buttons">
-                            <Link to="#" className="pricing-cta-button pricing-cta-button-primary">
+                            <button onClick={handleDownloadClick} className="pricing-cta-button pricing-cta-button-primary">
                                 Start Free — No Credit Card
-                            </Link>
-                            <Link to="#" className="pricing-cta-button pricing-cta-button-secondary">
+                            </button>
+                            <button onClick={handleDownloadClick} className="pricing-cta-button pricing-cta-button-secondary">
                                 Upgrade to Premium
-                            </Link>
+                            </button>
                         </div>
                         <p className="pricing-cta-note">
                             Available on iOS and Android • Upgrade anytime from the app
@@ -804,23 +864,33 @@ const Pricing = () => {
             {/* ============================================ */}
             <footer className="pricing-footer">
                 <div className="pricing-footer-container">
-                    <div className="pricing-footer-content">
+                    <div className="pricing-footer-grid">
                         <div className="pricing-footer-brand">
-                            <Link to="/" className="pricing-footer-logo">
-                                The Renvo<span className="pricing-footer-logo-accent">.</span>
-                            </Link>
-                            <p className="pricing-footer-tagline">
-                                Stop silent money leaks. Protect what you earn.
-                            </p>
+                            <span className="pricing-footer-logo">The Renvo<span className="pricing-footer-logo-dot">.</span></span>
+                            <p className="pricing-footer-description">Track, manage, and optimize your recurring expenses effortlessly.</p>
+                            <div className="pricing-footer-email">
+                                <a href="mailto:contact@therenvo.com">contact@therenvo.com</a>
+                            </div>
                         </div>
-                        <nav className="pricing-footer-nav">
-                            <Link to="/" className="pricing-footer-link">Home</Link>
-                            <Link to="/features" className="pricing-footer-link">Features</Link>
-                            <Link to="/pricing" className="pricing-footer-link pricing-footer-link-active">Pricing</Link>
-                        </nav>
+                        <div className="pricing-footer-links-section">
+                            <h4 className="pricing-footer-heading">Product</h4>
+                            <ul className="pricing-footer-links">
+                                <li><Link to="/features">Features</Link></li>
+                                <li><Link to="/pricing">Pricing</Link></li>
+                                <li><button onClick={handleDownloadClick} className="pricing-footer-link-button">Download</button></li>
+                            </ul>
+                        </div>
+                        <div className="pricing-footer-links-section">
+                            <h4 className="pricing-footer-heading">Company</h4>
+                            <ul className="pricing-footer-links">
+                                <li><a href="#">About</a></li>
+                                <li><Link to="/privacy">Privacy Policy</Link></li>
+                                <li><Link to="/terms">Terms of Service</Link></li>
+                            </ul>
+                        </div>
                     </div>
                     <div className="pricing-footer-bottom">
-                        <p>&copy; 2025 The Renvo. All rights reserved.</p>
+                        © 2025 The Renvo. All rights reserved.
                     </div>
                 </div>
             </footer>

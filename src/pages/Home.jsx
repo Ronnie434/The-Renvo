@@ -6,6 +6,8 @@ const Home = () => {
 
   const [openFaq, setOpenFaq] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showComingSoonModal, setShowComingSoonModal] = useState(false);
+  const [showBetaModal, setShowBetaModal] = useState(false);
 
   // Intersection Observer for fade-in animations
   useEffect(() => {
@@ -34,6 +36,27 @@ const Home = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleAppStoreClick = () => {
+    setShowBetaModal(true);
+  };
+
+  const handleGooglePlayClick = () => {
+    setShowComingSoonModal(true);
+  };
+
+  const closeComingSoonModal = () => {
+    setShowComingSoonModal(false);
+  };
+
+  const closeBetaModal = () => {
+    setShowBetaModal(false);
+  };
+
+  const handleBetaTestingClick = () => {
+    window.open('https://testflight.apple.com/join/Sjk4tf75', '_blank');
+    setShowBetaModal(false);
   };
 
   const faqData = [
@@ -208,6 +231,73 @@ const Home = () => {
 
   return (
     <div className="renvo-home">
+      {/* Beta Banner */}
+      <div className="beta-banner">
+        <div className="beta-banner-container">
+          <div className="beta-banner-content">
+            <div className="beta-banner-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div className="beta-banner-text">
+              <span className="beta-banner-label">🚀 Beta Testing Now Available</span>
+              <span className="beta-banner-message">The Renvo is currently in beta testing. Join now to be among the first to experience it!</span>
+            </div>
+          </div>
+          <button onClick={handleAppStoreClick} className="beta-banner-button">
+            Try Beta Now →
+          </button>
+        </div>
+      </div>
+
+      {/* Beta Testing Modal */}
+      {showBetaModal && (
+        <div className="modal-overlay" onClick={closeBetaModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeBetaModal}>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="modal-icon modal-icon--beta">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 className="modal-title">Beta Testing</h3>
+            <p className="modal-description">
+              The app is currently in beta testing. Please click below to get started with beta testing.
+            </p>
+            <button className="modal-button" onClick={handleBetaTestingClick}>
+              Get Started with TestFlight
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Coming Soon Modal */}
+      {showComingSoonModal && (
+        <div className="modal-overlay" onClick={closeComingSoonModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeComingSoonModal}>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="modal-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="modal-title">Coming Soon</h3>
+            <p className="modal-description">
+              The Renvo for Android is coming soon! Stay tuned for updates.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-container">
@@ -228,7 +318,7 @@ const Home = () => {
               </p>
               
               <div className="hero-buttons fade-in-section">
-                <button className="store-btn">
+                <button className="store-btn" onClick={handleAppStoreClick}>
                   <svg className="store-icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
                   </svg>
@@ -237,7 +327,7 @@ const Home = () => {
                     <div className="store-name">App Store</div>
                   </div>
                 </button>
-                <button className="store-btn store-btn--secondary">
+                <button className="store-btn store-btn--secondary" onClick={handleGooglePlayClick}>
                   <svg className="store-icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.293-.708V2.522c0-.265.106-.52.293-.708zm10.851 10.183l2.814-2.814 3.507 2.02c.645.372.645 1.222 0 1.594l-3.507 2.02-2.814-2.82zM4.846.384l9.913 5.716-2.579 2.578L4.846.384zM4.846 23.616l7.334-8.294 2.579 2.578-9.913 5.716z" />
                   </svg>
@@ -488,7 +578,7 @@ const Home = () => {
                   Basic reminders
                 </li>
               </ul>
-              <Link to="#" className="pricing-btn pricing-btn--secondary">Download Now</Link>
+              <button onClick={handleAppStoreClick} className="pricing-btn pricing-btn--secondary">Download Now</button>
             </div>
             <div className="pricing-card pricing-card--featured fade-in-section" style={{ transitionDelay: '100ms' }}>
               <div className="recommended-badge">RECOMMENDED</div>
@@ -567,7 +657,7 @@ const Home = () => {
               <ul className="footer-links">
                 <li><Link to="/features">Features</Link></li>
                 <li><Link to="/pricing">Pricing</Link></li>
-                <li><Link to="/">Download</Link></li>
+                <li><button onClick={handleAppStoreClick} className="footer-link-button">Download</button></li>
               </ul>
             </div>
             <div className="footer-links-section">
