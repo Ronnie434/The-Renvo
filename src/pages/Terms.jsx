@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 import './Legal.css';
 
 const Terms = () => {
@@ -96,13 +97,9 @@ const Terms = () => {
               <p><strong>Response Time:</strong> 24-48 hours</p>
             </div>
           </section>
-
-          <div className="legal-footer">
-            <Link to="/privacy" className="legal-link">Privacy Policy →</Link>
-            <Link to="/" className="legal-link">Back to Home</Link>
-          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

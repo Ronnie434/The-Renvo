@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 import './Legal.css';
 
 const Privacy = () => {
@@ -111,13 +112,9 @@ const Privacy = () => {
               <p><strong>Response Time:</strong> 24-48 hours</p>
             </div>
           </section>
-
-          <div className="legal-footer">
-            <Link to="/terms" className="legal-link">Terms of Service →</Link>
-            <Link to="/" className="legal-link">Back to Home</Link>
-          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

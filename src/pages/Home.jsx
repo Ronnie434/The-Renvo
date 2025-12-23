@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 import './Home.css';
 
 const Home = () => {
@@ -642,38 +643,7 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-grid">
-            <div className="footer-brand">
-              <span className="footer-logo">The Renvo<span className="logo-dot">.</span></span>
-              <p className="footer-description">Track, manage, and optimize your recurring expenses effortlessly.</p>
-              <div className="footer-email">
-                <a href="mailto:contact@therenvo.com">contact@therenvo.com</a>
-              </div>
-            </div>
-            <div className="footer-links-section">
-              <h4 className="footer-heading">Product</h4>
-              <ul className="footer-links">
-                <li><Link to="/features">Features</Link></li>
-                <li><Link to="/pricing">Pricing</Link></li>
-                <li><button onClick={handleAppStoreClick} className="footer-link-button">Download</button></li>
-              </ul>
-            </div>
-            <div className="footer-links-section">
-              <h4 className="footer-heading">Company</h4>
-              <ul className="footer-links">
-                <li><a href="#">About</a></li>
-                <li><Link to="/privacy">Privacy Policy</Link></li>
-                <li><Link to="/terms">Terms of Service</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            © 2025 The Renvo. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

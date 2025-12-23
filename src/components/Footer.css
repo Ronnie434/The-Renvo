@@ -1,0 +1,151 @@
+/* =====================================================
+   SHARED FOOTER COMPONENT
+   ===================================================== */
+.renvo-footer {
+  background: var(--color-gray-900);
+  color: var(--color-white);
+  padding: 4rem 1.5rem 2rem;
+  border-top: 1px solid var(--color-gray-800);
+  margin-top: auto; /* Push to bottom if content is short */
+}
+
+.renvo-footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.renvo-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* Brand Section */
+.renvo-footer-brand {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.renvo-footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+}
+
+.renvo-footer-logo-dot {
+  color: var(--color-primary);
+}
+
+.renvo-footer-description {
+  color: var(--color-gray-400);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.renvo-footer-email a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.renvo-footer-email a:hover {
+  color: var(--color-primary-light);
+}
+
+/* Links Section */
+.renvo-footer-links-section {
+  min-width: 100px;
+}
+
+.renvo-footer-heading {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.renvo-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.renvo-footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.renvo-footer-links a,
+.renvo-footer-links button.renvo-footer-link-button {
+  color: var(--color-gray-400);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.renvo-footer-links a:hover,
+.renvo-footer-links button.renvo-footer-link-button:hover {
+  color: var(--color-white);
+  transform: translateX(2px);
+}
+
+/* Bottom Bar */
+.renvo-footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-gray-800);
+  color: var(--color-gray-500);
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .renvo-footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: left;
+    gap: 2rem;
+  }
+
+  .renvo-footer-brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .renvo-footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .renvo-footer-brand {
+    grid-column: auto;
+    max-width: 360px;
+  }
+}
+
+/* Dark Mode Overrides (if needed beyond variables) */
+.dark .renvo-footer {
+  background: #020617; /* Even darker for footer in dark mode */
+  border-top-color: #1e293b;
+}
+
+.dark .renvo-footer-bottom {
+  border-top-color: #1e293b;
+}

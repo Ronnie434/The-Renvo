@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 import './Pricing.css';
 
 const Pricing = () => {
@@ -862,38 +863,7 @@ const Pricing = () => {
             {/* ============================================ */}
             {/* FOOTER */}
             {/* ============================================ */}
-            <footer className="pricing-footer">
-                <div className="pricing-footer-container">
-                    <div className="pricing-footer-grid">
-                        <div className="pricing-footer-brand">
-                            <span className="pricing-footer-logo">The Renvo<span className="pricing-footer-logo-dot">.</span></span>
-                            <p className="pricing-footer-description">Track, manage, and optimize your recurring expenses effortlessly.</p>
-                            <div className="pricing-footer-email">
-                                <a href="mailto:contact@therenvo.com">contact@therenvo.com</a>
-                            </div>
-                        </div>
-                        <div className="pricing-footer-links-section">
-                            <h4 className="pricing-footer-heading">Product</h4>
-                            <ul className="pricing-footer-links">
-                                <li><Link to="/features">Features</Link></li>
-                                <li><Link to="/pricing">Pricing</Link></li>
-                                <li><button onClick={handleDownloadClick} className="pricing-footer-link-button">Download</button></li>
-                            </ul>
-                        </div>
-                        <div className="pricing-footer-links-section">
-                            <h4 className="pricing-footer-heading">Company</h4>
-                            <ul className="pricing-footer-links">
-                                <li><a href="#">About</a></li>
-                                <li><Link to="/privacy">Privacy Policy</Link></li>
-                                <li><Link to="/terms">Terms of Service</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="pricing-footer-bottom">
-                        © 2025 The Renvo. All rights reserved.
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };
